@@ -6,9 +6,7 @@ import { useStyles } from './styles';
 
 const Desktop = dynamic(() => import('./components/desktop'));
 
-const Nav:React.FC<{
-  title?: string;
-}> = ({ title }) => {
+const Nav:React.FC = () => {
   const classes = useStyles();
   const { isDesktop } = useScreenSize();
   return (
@@ -20,7 +18,6 @@ const Nav:React.FC<{
       ) : (
         <Mobile
           className={classes.mobile}
-          title={title}
         />
       )}
     </>

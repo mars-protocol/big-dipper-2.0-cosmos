@@ -11,14 +11,13 @@ const Layout = (props:LayoutProps) => {
 
   const {
     children,
-    navTitle,
     className,
   } = props;
 
   return (
     <div className={classes.root}>
       <div className={classnames(classes.contentWrapper)}>
-        <Nav title={navTitle} />
+        <Nav />
         <div className={classes.children}>
           <div className={classes.appBarPlaceholder} />
           <div className={classnames(className, 'main-content')}>
