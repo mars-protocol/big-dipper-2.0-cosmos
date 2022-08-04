@@ -38,6 +38,7 @@ export const useStyles = () => {
         },
         dialog: {
           '& .MuiDialog-paper': {
+            background: theme.palette.background.default,
             width: '500px',
           },
         },

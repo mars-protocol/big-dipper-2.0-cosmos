@@ -17,7 +17,7 @@ import {
 } from '@material-ui/core';
 import { Close as CloseIcon } from '@material-ui/icons';
 import {
-  THEME_LIST, DATE_LIST, TX_LIST,
+  DATE_LIST, TX_LIST,
 } from '@recoil/settings';
 import { useSettingList } from './hooks';
 import { useStyles } from './styles';
@@ -74,30 +74,6 @@ const Settings: React.FC<{
         </DialogTitle>
         <DialogContent dividers>
           <form onSubmit={handleFormSubmit}>
-            <div className={classes.formItem}>
-              <Typography className="form-item--label">
-                {t('theme')}
-              </Typography>
-              <Select
-                variant="outlined"
-                value={state.theme}
-                onChange={(e) => handleChange('theme', e?.target?.value)}
-                MenuProps={{ MenuListProps: {
-                  disablePadding: true,
-                } }}
-              >
-                {THEME_LIST
-                  .map((l) => (
-                    <MenuItem
-                      key={l}
-                      value={l}
-                    >
-                      {t(l)}
-                    </MenuItem>
-                  ))}
-              </Select>
-            </div>
-
             <div className={classes.formItem}>
               <Typography className="form-item--label">
                 {t('language')}

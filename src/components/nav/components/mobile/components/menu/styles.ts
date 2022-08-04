@@ -6,7 +6,7 @@ export const useStyles = () => {
     (theme) => {
       return ({
         root: {
-          background: theme?.palette?.background.paper,
+          background: theme?.palette?.background.default,
           display: 'flex',
           flexDirection: 'column',
         },
@@ -40,7 +40,7 @@ export const useStyles = () => {
           },
         },
         drawer: {
-          background: Color(theme.palette.background.paper).alpha(0.5).string(),
+          background: Color(theme.palette.background.default).alpha(0.5).string(),
         },
       });
     },

@@ -1,6 +1,6 @@
 {
-    "name": "",
-    "short_name": "",
+    "name": "Mars Hub Explorer",
+    "short_name": "Mars Explorer",
     "icons": [
         {
             "src": "/images/icons/android-chrome-192x192.png",

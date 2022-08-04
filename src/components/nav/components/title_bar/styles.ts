@@ -29,7 +29,7 @@ export const useStyles = () => {
         },
         content: {
           width: '100%',
-          background: theme.palette.custom.general.surfaceOne,
+          background: theme.palette.background.paper,
           marginTop: theme.spacing(2),
           borderRadius: theme.shape.borderRadius,
           padding: theme.spacing(1),

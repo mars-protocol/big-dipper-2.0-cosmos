@@ -6,7 +6,6 @@ export const useStyles = () => {
       return ({
         root: {
           width: '100%',
-          background: theme.palette.background.default,
           display: 'flex',
           justifyContent: 'flex-end',
           alignItems: 'center',
@@ -24,7 +23,7 @@ export const useStyles = () => {
           marginRight: theme.spacing(2),
           '&.open': {
             '& .MuiInputBase-root': {
-              background: theme.palette.background.default,
+              background: 'transparent',
             },
           },
         },
@@ -45,6 +44,7 @@ export const useStyles = () => {
           left: 0,
           '&.open': {
             opacity: 1,
+            background: theme.palette.background.default,
             visibility: 'visible',
           },
         },

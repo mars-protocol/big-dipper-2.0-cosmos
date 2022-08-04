@@ -1,14 +1,21 @@
 @font-face {
-  font-family: 'Hind Madurai';
-  src: url("/fonts/HindMadurai-Regular.ttf");
-  font-weight: 400;
+    font-family: 'Inter';
+    src: url('/fonts/Inter-Regular.woff2') format('woff2'),
+        url('/fonts/Inter-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
 }
 
 @font-face {
-  font-family: 'Hind Madurai';
-  src: url("/fonts/HindMadurai-Regular.ttf");
-  font-weight: 500;
+    font-family: 'Inter';
+    src: url('/fonts/Inter-SemiBold.woff2') format('woff2'),
+        url('/fonts/Inter-SemiBold.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
 }
+
 
 html {
   font-size: 16px;
@@ -27,8 +34,11 @@ html {
   }
 
 body {
-  font-family: "Hind Madurai", sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: 16px;
+  background-size: cover;
+  background-image: url('/images/bg.svg');
+  background-position: center top;
 }
 
 a {
@@ -37,7 +47,7 @@ a {
 }
 
 h1,h2,h3,h4,h5,h6 {
-  font-family: "Hind Madurai", sans-serif;
+  font-family: "Inter", sans-serif;
   font-weight: 400;
   margin: 0;
 }
@@ -97,4 +107,10 @@ svg {
 
 .scrollbar::-webkit-scrollbar {
   display: none;
+}
+
+@media screen and (min-width: 1280px) {
+  body {
+    background-size: 100% auto;
+  }
 }

@@ -10,13 +10,13 @@ export const useStyles = () => {
             minWidth: '48px',
           },
           '&.MuiListItem-gutters': {
-            padding: theme.spacing(2, 2.5),
+            padding: theme.spacing(2, 2.25),
           },
           '& .MuiListItemText-root': {
             color: theme.palette.custom.general.icon,
           },
           '&.active': {
-            background: Color(theme.palette.background.paper).lighten(0.5).string(),
+            background: Color(theme.palette.background.default).lighten(0.5).string(),
             '& .MuiListItemIcon-root': {
               '& svg': {
                 fill: theme?.palette?.primary?.main,

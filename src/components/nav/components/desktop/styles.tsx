@@ -3,18 +3,21 @@ import { makeStyles } from '@material-ui/core/styles';
 export const useStyles = () => {
   const styles = makeStyles(
     (theme) => {
-      const OPEN_DRAWER_WIDTH = 230;
+      const OPEN_DRAWER_WIDTH = 191;
       const CLOSED_DRAWER_WIDTH = 59;
+      const OPEN_DRAWER_MARGIN = 141;
 
       return ({
         root: {
           '& .MuiDrawer-paperAnchorDockedLeft': {
+            background: theme.palette.background.default,
             border: 'none',
           },
         },
         logo: {
-          width: '216px',
-          padding: theme.spacing(2, 1.75, 2.5),
+          width: '59px',
+          padding: theme.spacing(2, 1, 1),
+          fill: 'none',
           '&:hover': {
             cursor: 'pointer',
           },
@@ -24,20 +27,25 @@ export const useStyles = () => {
           display: 'flex',
           alignItems: 'flex-end',
           justifyContent: 'flex-start',
-          background: theme?.palette?.background?.default,
+          background: 'transparent',
           color: theme?.palette?.custom?.fonts?.fontTwo ?? 'inherit',
-          width: `calc(100% - ${CLOSED_DRAWER_WIDTH}px)`,
+          width: '100%',
           zIndex: theme.zIndex.drawer + 1,
           transition: theme.transitions.create(['width', 'margin'], {
             easing: theme.transitions.easing.easeIn,
             duration: theme.transitions.duration.enteringScreen,
           }),
+          '& svg': {
+            fill: theme?.palette?.custom?.fonts?.fontOne,
+            '& path': {
+              fill: `${theme?.palette?.custom?.fonts?.fontOne} !important`,
+            },
+          },
           '&.MuiPaper-elevation4': {
             boxShadow: 'none',
           },
           '&.open': {
-            marginLeft: OPEN_DRAWER_WIDTH,
-            width: `calc(100% - ${OPEN_DRAWER_WIDTH}px)`,
+            width: `calc(100% - ${OPEN_DRAWER_MARGIN}px)`,
             transition: theme.transitions.create(['width', 'margin'], {
               easing: theme.transitions.easing.easeIn,
               duration: theme.transitions.duration.enteringScreen,

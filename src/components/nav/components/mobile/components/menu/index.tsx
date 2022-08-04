@@ -10,7 +10,6 @@ import { useRouter } from 'next/router';
 import useTranslation from 'next-translate/useTranslation';
 import Language from '@assets/icon-language.svg';
 import ThemeIcon from '@assets/icon-theme.svg';
-import { THEME_LIST } from '@recoil/settings';
 import {
   ExpandMoreOutlined,
 } from '@material-ui/icons';
@@ -66,29 +65,6 @@ const Menu = (props: MenuProps) => {
                       {t(l)}
                     </MenuItem>
                   </Link>
-                </div>
-              ))
-            }
-        </div>
-      </Drawer>
-      {/* ================================== */}
-      {/* Theme Drawer */}
-      {/* ================================== */}
-      <Drawer
-        anchor="bottom"
-        open={themeOptions.drawerOpen}
-        onClose={themeOptions.toggleDrawer}
-        className={classes.drawer}
-      >
-        <div className={classnames('content')}>
-          {
-            THEME_LIST
-              .filter((l) => l !== themeOptions.theme)
-              .map((l) => (
-                <div key={l}>
-                  <MenuItem button component="a" onClick={() => themeOptions.handleChangeTheme(l)}>
-                    {t(l)}
-                  </MenuItem>
                 </div>
               ))
             }

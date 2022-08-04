@@ -12,7 +12,11 @@ export const useStyles = () => {
         desktop: {
           display: 'none',
           [theme.breakpoints.up('lg')]: {
-            display: 'block',
+            width: '100%',
+            display: 'flex',
+            justifyContent: 'flex-end',
+            flex: '0 0 100%',
+            flexWrap: 'wrap',
           },
         },
       });

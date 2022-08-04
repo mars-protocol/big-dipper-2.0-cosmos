@@ -12,6 +12,9 @@ export const useStyles = () => {
           gridTemplateColumns: 'repeat(1, 1fr)',
           '& a': {
             color: theme.palette.custom.fonts.highlight,
+            '&:hover': {
+              textDecoration: 'underline',
+            },
           },
           [theme.breakpoints.up('md')]: {
             gridTemplateColumns: 'repeat(2, 1fr)',

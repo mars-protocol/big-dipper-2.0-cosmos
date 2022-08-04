@@ -2,7 +2,7 @@ import { generalConfig } from '@configs';
 
 export const OPEN_GRAPH_SEO = {
   type: 'website',
-  site_name: 'Big Dipper',
+  site_name: 'Mars Hub Blockexplorer',
   images: [
     {
       url: generalConfig.previewImage,
@@ -25,15 +25,7 @@ export const ADDITIONAL_LINK_TAGS_SEO = [
   },
   {
     rel: 'icon',
-    type: 'image/png',
-    href: '/icons/favicon-32x32.png',
-    sizes: '32x32',
-  },
-  {
-    rel: 'icon',
-    type: 'image/png',
-    href: '/icons/favicon-16x16.png',
-    sizes: '16x16',
+    href: '/icons/favicon.svg',
   },
   {
     rel: 'manifest',
@@ -43,10 +35,6 @@ export const ADDITIONAL_LINK_TAGS_SEO = [
     rel: 'mask-icon',
     href: '/icons/safari-pinned-tab.svg',
     color: '#5bbad5',
-  },
-  {
-    rel: 'shortcut icon',
-    href: '/icons/favicon.ico',
   },
 ];
 

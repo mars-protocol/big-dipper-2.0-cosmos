@@ -12,7 +12,6 @@ import {
 } from './selectors';
 
 import {
-  THEME_LIST,
   THEME_DICTIONARY,
   DATE_LIST,
   TX_LIST,
@@ -24,7 +23,6 @@ import {
 } from './hooks';
 
 export {
-  THEME_LIST,
   THEME_DICTIONARY,
   DATE_LIST,
   TX_LIST,

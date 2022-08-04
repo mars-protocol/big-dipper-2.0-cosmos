@@ -1,24 +1,26 @@
-const backgroundDefault = '#000000';
-const surfaceOne = '#1C1C1C';
-const surfaceTwo = '#252527';
+const backgroundDefault = '#141621';
+const surfaceOne = '#141621';
+const surfaceTwo = '#562a3b';
 const fontOne = '#FFFFFF';
-const fontTwo = '#C4C4C4';
-const fontThree = '#8D8D8D';
+const fontTwo = '#FFFFFF99';
+const fontThree = '#818181';
 const icon = '#9F9F9F';
+const oddRow = '#0000001A';
+const primaryColor = '#14A693';
 
-/** Custom theme overrides for deuteranopia mode */
-export const deuteranopiaThemeOverride = {
+/** Custom theme overrides for mars mode */
+export const marsThemeOverride = {
   mixins: {
     tableCell: {
-      background: surfaceOne, // surface one
+      background: 'transparent',
       '&.odd': {
-        background: surfaceTwo, // surface two
+        background: oddRow,
       },
     },
   },
   props: {
     MuiSvgIcon: {
-      htmlColor: icon, // same as custom /general /icons
+      htmlColor: icon,
     },
   },
   palette: {
@@ -27,40 +29,41 @@ export const deuteranopiaThemeOverride = {
       icon,
     },
     primary: {
-      main: '#FFDC3D',
+      main: primaryColor,
       contrastText: '#000000',
     },
     background: {
+      image: 'url("/images/bg.svg")',
       default: backgroundDefault,
-      paper: surfaceOne,
+      paper: 'linear-gradient(132.82deg, rgba(11, 14, 32, 0.64) 5.03%, rgba(52, 20, 33, 0.9) 73.08%)',
     },
     divider: '#3D3D43',
     text: {
-      primary: '#FFFFFF',
-      secondary: '#C4C4C4',
+      primary: '#E6E6E6',
+      secondary: '#AAAAAB',
     },
     custom: {
       general: {
-        background: backgroundDefault, // same as background default
-        surfaceOne, // same as background paper
-        surfaceTwo, // striped tables
+        background: backgroundDefault,
+        surfaceOne,
+        surfaceTwo,
       },
       fonts: {
         fontOne,
         fontTwo,
         fontThree,
-        fontFour: '#9F9F9F',
-        highlight: '#FFAC3B', // links
+        fontFour: '#999999',
+        highlight: primaryColor,
       },
       primaryData: {
-        one: '#8400CD',
-        two: '#A700FC',
-        three: '#DA00FD',
-        four: '#FF3CFE',
+        one: 'linear-gradient(132.82deg, rgba(11, 14, 32, 0.64) 5.03%, rgba(52, 20, 33, 0.9) 73.08%)',
+        two: 'linear-gradient(132.82deg, rgba(11, 14, 32, 0.64) 5.03%, rgba(52, 20, 33, 0.9) 73.08%)',
+        three: 'linear-gradient(132.82deg, rgba(11, 14, 32, 0.64) 5.03%, rgba(52, 20, 33, 0.9) 73.08%)',
+        four: 'linear-gradient(132.82deg, rgba(11, 14, 32, 0.64) 5.03%, rgba(52, 20, 33, 0.9) 73.08%)',
       },
       results: {
-        pass: '#005FCC',
-        fail: '#CD022D',
+        pass: '#008169',
+        fail: '#F60239',
       },
       tags: {
         zero: '#F9F9F9',
@@ -88,13 +91,13 @@ export const deuteranopiaThemeOverride = {
       condition: {
         zero: '#6D6D6C',
         one: '#FFFFFF',
-        two: '#FFAC3B',
-        three: '#0079FA',
+        two: '#2068A6',
+        three: '#FF6E3A',
       },
       tokenomics: {
-        one: '#009FFA',
-        two: '#F60239',
-        three: '#FF92FD',
+        one: '#9BA2FF',
+        two: '#DF928E',
+        three: '#726DA8',
       },
       charts: {
         zero: '#6D6D6C',
@@ -111,24 +114,41 @@ export const deuteranopiaThemeOverride = {
       root: {
         '& .MuiTableRow-root': {
           '&:nth-child(odd)': {
-            backgroundColor: surfaceTwo, // surface two
+            backgroundColor: oddRow,
           },
         },
         '& .MuiTableCell-root': {
-          color: fontTwo, // font two
+          color: fontTwo,
         },
+      },
+    },
+    MuiList: {
+      root: {
+        background: backgroundDefault,
+      },
+    },
+    MuiListItem: {
+      root: {
+        background: backgroundDefault,
       },
     },
     MuiTabs: {
       root: {
         '& .MuiTab-textColorInherit': {
-          color: fontThree, // font three
+          color: fontThree,
         },
         '& .MuiTab-textColorInherit.Mui-selected': {
-          color: fontOne, // font one
+          color: fontOne,
         },
         '& .MuiTabs-indicator': {
-          backgroundColor: fontOne, // font one (?)
+          backgroundColor: fontOne,
+        },
+      },
+    },
+    MuiTypography: {
+      root: {
+        button: {
+          color: primaryColor,
         },
       },
     },

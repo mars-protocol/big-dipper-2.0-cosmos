@@ -91,6 +91,7 @@
     "import/no-unresolved": "off",
     "lines-between-class-members": "off",
     "react/no-array-index-key": "off",
+    "react/require-default-props": "off",
     "jsx-a11y/anchor-is-valid": "off",
     "react/jsx-first-prop-new-line": [
       "error",

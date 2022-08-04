@@ -15,6 +15,8 @@ export const useStyles = () => {
           [theme.breakpoints.up('lg')]: {
             display: 'flex',
             flex: 1,
+            flexWrap: 'wrap',
+            paddingLeft: '50px',
           },
         },
         footer: {
@@ -25,6 +27,9 @@ export const useStyles = () => {
         },
         appBarPlaceholder: {
           ...theme.mixins.toolbar,
+          [theme.breakpoints.up('lg')]: {
+            display: 'none',
+          },
         },
         children: {
           flexGrow: 1,

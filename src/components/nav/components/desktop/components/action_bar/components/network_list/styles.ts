@@ -5,11 +5,10 @@ export const useStyles = () => {
     (theme) => {
       return ({
         root: {
-          background: theme.palette.background.paper,
+          background: theme.palette.background.default,
           '& svg': {
-            width: '216px',
-            // padding: '16px 12px 20px',
-            padding: theme.spacing(2, 1.75, 2.5),
+            width: '59px',
+            padding: theme.spacing(2, 1, 1),
           },
         },
         content: {

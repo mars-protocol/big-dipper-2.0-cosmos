@@ -1,19 +1,15 @@
 import React from 'react';
 import classnames from 'classnames';
 import Trans from 'next-translate/Trans';
-import { useRecoilValue } from 'recoil';
 import useTranslation from 'next-translate/useTranslation';
-import FooterLogoLight from '@assets/big-dipper-red.svg';
-import FooterLogoDark from '@assets/big-dipper-white.svg';
 import {
   Button,
   Divider,
   Typography,
 } from '@material-ui/core';
 import {
-  chainConfig, generalConfig,
+  generalConfig,
 } from '@src/configs';
-import { readTheme } from '@recoil/settings/selectors';
 import { SocialMedia } from './components';
 import {
   footerLinks, donateLink,
@@ -23,7 +19,6 @@ import { useStyles } from './styles';
 const Footer: React.FC<{className?: string}> = ({ className }) => {
   const { t } = useTranslation();
   const classes = useStyles();
-  const theme = useRecoilValue(readTheme);
 
   // ============================
   // Footer
@@ -33,17 +28,7 @@ const Footer: React.FC<{className?: string}> = ({ className }) => {
   return (
     <div className={classnames(className, classes.root)}>
       <div className={classnames('footer')}>
-        {/* ============================= */}
-        {/* logo */}
-        {/* ============================= */}
-        <div className="footer__logo--container">
-          {theme === 'light' ? (
-            <FooterLogoLight className="footer__logo" />
-          ) : (
-            <FooterLogoDark className="footer__logo" />
-          )}
-          <p className="footer__slogan">{chainConfig.title}</p>
-        </div>
+
         {/* ============================= */}
         {/* links */}
         {/* ============================= */}
@@ -122,20 +107,6 @@ const Footer: React.FC<{className?: string}> = ({ className }) => {
           />
           {' '}
           {year}
-        </Typography>
-        <Typography className="footer__closing--text">
-          <Trans
-            i18nKey="common:maintainBy"
-            components={[
-              (
-                // eslint-disable-next-line
-                <a target="_blank" rel="noreferrer" href={generalConfig.maintainer.url} />
-              ),
-            ]}
-            values={{
-              name: generalConfig.maintainer.name,
-            }}
-          />
         </Typography>
       </div>
     </div>

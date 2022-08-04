@@ -6,8 +6,8 @@ export const useStyles = () => {
     (theme) => {
       return ({
         root: {
-          background: theme.palette.background.paper,
-          padding: theme.spacing(6, 3, 6),
+          background: theme.palette.background.default,
+          padding: theme.spacing(3),
           color: theme.palette.custom.fonts.fontOne,
           '& .footer__closing--container': {
             '& a': {
@@ -20,15 +20,6 @@ export const useStyles = () => {
           '& p': {
             marginTop: theme.spacing(2),
             marginBottom: theme.spacing(2),
-          },
-          '& .footer__logo--container': {
-            '& p': {
-              marginTop: theme.spacing(1),
-              marginBottom: 0,
-            },
-          },
-          '& .footer__logo': {
-            width: '180px',
           },
           '& .footer__closing--text': {
             color: theme.palette.custom.fonts.fontThree,
@@ -99,7 +90,7 @@ export const useStyles = () => {
               gridTemplateColumns: 'repeat(4, 1fr)',
             },
             '& .footer__links': {
-              gridColumn: '2/5',
+              gridColumn: '1/5',
               display: 'grid',
               gridTemplateColumns: 'repeat(3, 1fr)',
               marginTop: 0,

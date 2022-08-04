@@ -6,7 +6,7 @@ export const useStyles = () => {
       return ({
         root: {
           padding: theme.spacing(0.8, 2),
-          background: theme.palette.background.paper,
+          background: theme.palette.background.default,
           color: theme.palette.custom.fonts.fontTwo,
           borderRadius: theme.shape.borderRadius,
           display: 'flex',

@@ -38,23 +38,26 @@ jest.mock('next/dynamic', () => () => {
 
 jest.mock('@configs', () => ({
   chainConfig: {
-    "title": "Desmos Block Explorer",
-    "network": "morpheus-apollo-1",
-    "icon": "https://raw.githubusercontent.com/forbole/big-dipper-assets/master/desmos/icon.svg?sanitize=true",
-    "logo": "https://raw.githubusercontent.com/forbole/big-dipper-assets/master/desmos/logo.svg?sanitize=true",
+    "title": "Mars Hub Block Explorer",
+    "network": "testnet",
+    "icon": "https://marsprotocol.io/mars_logo_colored.svg",
+    "logo": {
+      "default": "/images/mars-protocol.svg"
+    },
     "prefix": {
-      "consensus": "desmosvalcons",
-      "validator": "desmosvaloper",
-      "account": "desmos"
+      "consensus": "marsvalcons",
+      "validator": "marsvaloper",
+      "account": "mars"
     },
     "genesis": {
-      "time": "2021-04-27T13:00:00",
+      "time": "2021-07-25T08:00:00",
       "height": 1
     },
-    "primaryTokenUnit": "udaric",
+    "primaryTokenUnit": "umars",
+    "votingPowerTokenUnit": "umars",
     "tokenUnits": {
-      "udaric": {
-        "display": "daric",
+      "umars": {
+        "display": "mars",
         "exponent": 6
       }
     },

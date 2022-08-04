@@ -7,7 +7,7 @@ export const useStyles = () => {
       return ({
         root: {
           padding: theme.spacing(2),
-          background: Color(theme.palette.background.paper).alpha(0.9).string(),
+          background: Color(theme.palette.background.default).alpha(0.9).string(),
         },
       });
     },

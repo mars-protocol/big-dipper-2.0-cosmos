@@ -5,10 +5,7 @@ import {
   AppBar,
   ClickAwayListener,
 } from '@material-ui/core';
-import { useRecoilValue } from 'recoil';
-import { readTheme } from '@recoil/settings/selectors';
-import BigDipperLogoWhite from '@assets/big-dipper-white.svg';
-import BigDipperLogoRed from '@assets/big-dipper-red.svg';
+import MarsLogo from '@assets/mars.svg';
 import { useStyles } from './styles';
 import { useDesktop } from './hooks';
 import {
@@ -19,12 +16,10 @@ import { ActionBar } from './components';
 
 const Desktop: React.FC<{
   className?: string;
-  title: string;
 }> = ({
-  className, title,
+  className,
 }) => {
   const classes = useStyles();
-  const theme = useRecoilValue(readTheme);
   const {
     isMenu,
     toggleMenu,
@@ -38,7 +33,7 @@ const Desktop: React.FC<{
         className={classnames(className, classes.root)}
       >
         <AppBar
-          position="fixed"
+          position="relative"
           className={classnames(classes.appBar, {
             open: isMenu,
           })}
@@ -47,7 +42,7 @@ const Desktop: React.FC<{
             toggleNetwork={toggleNetwork}
             isNetwork={isNetwork}
           />
-          <TitleBar title={title} />
+          <TitleBar />
         </AppBar>
         <Drawer
           variant="permanent"
@@ -66,19 +61,11 @@ const Desktop: React.FC<{
             }),
           }}
         >
-          {theme === 'light' ? (
-            <BigDipperLogoRed
-              className={classes.logo}
-              onClick={toggleMenu}
-              role="button"
-            />
-          ) : (
-            <BigDipperLogoWhite
-              className={classes.logo}
-              onClick={toggleMenu}
-              role="button"
-            />
-          )}
+          <MarsLogo
+            className={classes.logo}
+            onClick={toggleMenu}
+            role="button"
+          />
           <MenuItems />
         </Drawer>
       </div>
