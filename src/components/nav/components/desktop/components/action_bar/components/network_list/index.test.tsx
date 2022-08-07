@@ -24,9 +24,7 @@ describe('screen: Nav/NetworkList', () => {
     component = renderer.create(
       <RecoilRoot>
         <MockTheme>
-          <NetworkList
-            actionHeight={30}
-          />
+          <NetworkList />
         </MockTheme>
       </RecoilRoot>,
     );

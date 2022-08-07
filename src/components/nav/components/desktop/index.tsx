@@ -5,7 +5,7 @@ import {
   AppBar,
   ClickAwayListener,
 } from '@material-ui/core';
-import MarsLogo from '@assets/mars.svg';
+import Chevron from '@assets/icon-chevron.svg';
 import { useStyles } from './styles';
 import { useDesktop } from './hooks';
 import {
@@ -61,8 +61,8 @@ const Desktop: React.FC<{
             }),
           }}
         >
-          <MarsLogo
-            className={classes.logo}
+          <Chevron
+            className={classes.chevron}
             onClick={toggleMenu}
             role="button"
           />

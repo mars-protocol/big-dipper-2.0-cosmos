@@ -10,14 +10,23 @@ export const useStyles = () => {
       return ({
         root: {
           '& .MuiDrawer-paperAnchorDockedLeft': {
-            background: theme.palette.background.default,
             border: 'none',
           },
         },
-        logo: {
-          width: '59px',
-          padding: theme.spacing(2, 1, 1),
+        chevron: {
+          width: '43px',
+          margin: theme.spacing(0, 1),
+          padding: theme.spacing(2, 1),
           fill: 'none',
+          transformOrigin: 'center',
+          alignSelf: 'flex-end',
+          transition: 'all .5s',
+          '.open &': {
+            transform: 'rotate(180deg)',
+          },
+          '& path': {
+            fill: theme.palette.custom.fonts.fontOne,
+          },
           '&:hover': {
             cursor: 'pointer',
           },

@@ -25,7 +25,10 @@ export const useStyles = () => {
         },
         logo: {
           height: '56px',
-          // width: '225px',
+          display: 'none',
+          [theme.breakpoints.up('lg')]: {
+            display: 'block',
+          },
         },
         content: {
           width: '100%',

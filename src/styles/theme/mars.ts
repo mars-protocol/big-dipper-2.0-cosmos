@@ -5,16 +5,15 @@ const fontOne = '#FFFFFF';
 const fontTwo = '#FFFFFF99';
 const fontThree = '#818181';
 const icon = '#9F9F9F';
-const oddRow = '#0000001A';
 const primaryColor = '#14A693';
 
 /** Custom theme overrides for mars mode */
 export const marsThemeOverride = {
   mixins: {
     tableCell: {
-      background: 'transparent',
-      '&.odd': {
-        background: oddRow,
+      borderBottom: '1px solid rgba(255, 255, 255, 0.1)',
+      '& .MuiTypography-root.MuiTypography-body1': {
+        color: fontOne,
       },
     },
   },
@@ -37,7 +36,7 @@ export const marsThemeOverride = {
       default: backgroundDefault,
       paper: 'linear-gradient(132.82deg, rgba(11, 14, 32, 0.64) 5.03%, rgba(52, 20, 33, 0.9) 73.08%)',
     },
-    divider: '#3D3D43',
+    divider: 'rgba(255, 255, 255, 0.1)',
     text: {
       primary: '#E6E6E6',
       secondary: '#AAAAAB',
@@ -110,26 +109,68 @@ export const marsThemeOverride = {
     },
   },
   overrides: {
+    MuiDrawer: {
+      paper: {
+        height: 'unset',
+        borderRadius: '0 0 12px 0',
+        overflow: 'hidden',
+        background: 'linear-gradient(132.82deg, rgba(11, 14, 32, 0.64) 5.03%, rgba(52, 20, 33, 0.9) 73.08%)',
+        transition: 'all .2s cubic-bezier(0.4, 0, 1, 1) 0ms',
+
+        '&.open': {
+          background: 'linear-gradient(132.82deg, rgba(11, 14, 32, 1) 5.03%, rgba(52, 20, 33, 1) 73.08%)',
+          transition: 'all .2s cubic-bezier(0.4, 0, 1, 1) 0ms',
+        },
+
+        '& .MuiList-padding': {
+          padding: 0,
+        },
+      },
+    },
     MuiTableBody: {
       root: {
         '& .MuiTableRow-root': {
-          '&:nth-child(odd)': {
-            backgroundColor: oddRow,
-          },
+          borderBottom: '1px solid rgba(255, 255, 255, 0.1)',
         },
         '& .MuiTableCell-root': {
-          color: fontTwo,
+          color: fontOne,
+        },
+      },
+    },
+    MuiTableRow: {
+      root: {
+        '&.MuiTableRow-head': {
+          borderTop: '1px solid rgba(255, 255, 255, 0.1)',
+          borderBottom: '1px solid rgba(255, 255, 255, 0.1)',
+        },
+      },
+    },
+    MuiTableCell: {
+      root: {
+        fontSize: '13.33px',
+        fontWeight: 400,
+
+        '& .MuiTypography-root': {
+          fontSize: '13.33px',
+        },
+
+        '&.MuiTableCell-head': {
+          fontWeight: 700,
+          lineHeight: '16px',
+          height: '34px',
+          fontSize: '11.85px',
+          color: 'rgba(255, 255, 255, 0.4)',
         },
       },
     },
     MuiList: {
       root: {
-        background: backgroundDefault,
+        background: 'transparent',
       },
     },
     MuiListItem: {
       root: {
-        background: backgroundDefault,
+        background: 'transparent',
       },
     },
     MuiTabs: {
@@ -147,9 +188,60 @@ export const marsThemeOverride = {
     },
     MuiTypography: {
       root: {
-        button: {
+        '&.button': {
           color: primaryColor,
         },
+      },
+      h1: {
+        fontSize: '30.42px',
+        fontWeight: 400,
+        lineHeight: '40px',
+        letterSpacing: 'unset',
+      },
+      h2: {
+        textAlign: 'center',
+        textTransform: 'uppercase',
+        letterSpacing: '5px',
+        fontSize: '21.36px',
+        lineHeight: '32px',
+        width: '100%',
+      },
+      h4: {
+        fontSize: '13.33px',
+        lineHeight: '20px',
+        letterSpacing: 'unset',
+      },
+      caption: {
+        fontSize: '13.33px',
+        fontWeight: 700,
+      },
+      body1: {
+        fontSize: '13.33px',
+        '& a': {
+          color: `${primaryColor} !important`,
+          '& *': {
+            color: `${primaryColor} !important`,
+          },
+        },
+      },
+      body2: {
+        '&.label': {
+          textTransform: 'uppercase',
+          letterSpacing: '3px',
+          fontSize: '13.33px',
+          lineHeight: '20px',
+          fontWeight: 600,
+          opacity: '0.3',
+        },
+      },
+    },
+    MuiPopover: {
+      paper: {
+        padding: '8px, 16px',
+        boxShadow: '0 3px 4px rgba(0, 0, 0, 0.14), 0 6px 30px rgba(0, 0, 0, 0.12), 0 8px 10px rgba(0, 0, 0, 0.2)',
+        borderRadius: '12px',
+        background: 'linear-gradient(77.47deg, rgba(20, 24, 57, 0.9) 11.58%, rgba(34, 16, 57, 0.9) 93.89%)',
+        color: fontOne,
       },
     },
   },

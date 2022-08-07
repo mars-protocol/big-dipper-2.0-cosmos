@@ -1,5 +1,4 @@
 import { makeStyles } from '@material-ui/core/styles';
-import Color from 'color';
 
 export const useStyles = () => {
   const styles = makeStyles(
@@ -16,7 +15,7 @@ export const useStyles = () => {
             color: theme.palette.custom.general.icon,
           },
           '&.active': {
-            background: Color(theme.palette.background.default).lighten(0.5).string(),
+            background: 'rgba(0, 0, 0, 0.4)',
             '& .MuiListItemIcon-root': {
               '& svg': {
                 fill: theme?.palette?.primary?.main,

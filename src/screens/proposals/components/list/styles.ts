@@ -11,7 +11,7 @@ export const useStyles = () => {
           flexDirection: 'column',
           [theme.breakpoints.up('lg')]: {
             height: '100%',
-            minHeight: '65vh',
+            minHeight: 'calc(100vh - 200px)',
           },
         },
         list: {

@@ -17,6 +17,8 @@ export const useStyles = () => {
             flex: 1,
             flexWrap: 'wrap',
             paddingLeft: '50px',
+            minHeight: '100vh',
+            alignContent: 'flex-start',
           },
         },
         footer: {

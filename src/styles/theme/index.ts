@@ -29,14 +29,23 @@ export const common = {
     },
     tableCell: {
       height: '50px',
-      padding: '16px',
+      lineHeight: '16px',
+      fontSize: '11.85px',
+      color: 'rgba(255, 255, 255, 0.4)',
       display: 'flex',
       alignItems: 'center',
+
       '& > *': {
         width: '100%',
       },
       '& .MuiTypography-body1': {
         whiteSpace: 'nowrap',
+      },
+      '& .MuiTypography-h4': {
+        fontWeight: 700,
+        height: '34px',
+        lineHeight: '34px',
+        borderTop: '1px solid rgba(255, 255, 255, 0.1)',
       },
     },
   },
@@ -51,8 +60,8 @@ export const common = {
   typography: {
     fontFamily: '"Inter", sans-serif',
     h1: {
-      fontSize: '2rem',
-      letterSpacing: 0.25,
+      fontSize: '30.42px',
+      lineHeight: '40px',
     },
     h2: {
       fontSize: '1.5rem',
@@ -170,9 +179,8 @@ export const common = {
     },
     MuiTabs: {
       root: {
-        // '& .MuiTabs-fixed': {
-        //   overflow: 'auto',
-        // },
+        marginBottom: '16px',
+
         '&.MuiTabs-root, & .MuiTab-root': {
           minHeight: '40px',
         },

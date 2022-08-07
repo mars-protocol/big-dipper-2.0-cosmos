@@ -5,22 +5,29 @@ export const useStyles = () => {
     (theme) => {
       return ({
         root: {
-          padding: theme.spacing(0.8, 2),
-          background: theme.palette.background.default,
-          color: theme.palette.custom.fonts.fontTwo,
-          borderRadius: theme.shape.borderRadius,
+          padding: theme.spacing(0.25, 2),
+          color: theme.palette.custom.fonts.fontOne,
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
+          background: 'rgba(68, 11, 55, 0.7)',
+          border: '1px solid rgba(255, 255, 255, 0.6)',
+          borderRadius: '20px',
+          height: '31px',
           '&:hover': {
             cursor: 'pointer',
+            borderColor: 'rgba(255, 255, 255, 1)',
+            background: '#440b37',
+          },
+          '& .MuiTypography-body1': {
+            lineHeight: '20px',
           },
           '& .MuiSvgIcon-root': {
-            marginLeft: '0.1rem',
+            marginLeft: theme.spacing(1),
           },
         },
         icon: {
-          width: 24,
+          width: 17,
           marginRight: theme.spacing(1),
         },
       });

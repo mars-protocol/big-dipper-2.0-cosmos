@@ -6,7 +6,7 @@ export const useStyles = () => {
       return ({
         root: {
           display: 'flex',
-          alignItems: 'flex-start',
+          alignItems: 'center',
           justifyContent: 'space-between',
           padding: theme.spacing(3, 2, 0),
         },
@@ -15,7 +15,7 @@ export const useStyles = () => {
           zIndex: 200,
         },
         logo: {
-          width: '120px',
+          width: '150px',
           '&:hover': {
             cursor: 'pointer',
           },

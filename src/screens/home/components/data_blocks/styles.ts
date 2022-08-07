@@ -16,17 +16,29 @@ export const useStyles = () => {
             gridTemplateColumns: 'repeat(4, 1fr)',
           },
         },
-        blockHeight: {
-          background: theme.palette.custom.primaryData.one,
-        },
         blockTime: {
-          background: theme.palette.custom.primaryData.two,
+          background: theme.palette.background.paper,
+          '& .label': {
+            marginBottom: theme.spacing(1),
+          },
         },
         price: {
-          background: theme.palette.custom.primaryData.three,
+          background: theme.palette.background.paper,
+          '& .label': {
+            marginBottom: theme.spacing(1),
+          },
         },
         validators: {
-          background: theme.palette.custom.primaryData.four,
+          background: theme.palette.background.paper,
+          '& .label': {
+            marginBottom: theme.spacing(1),
+          },
+        },
+        blockHeight: {
+          background: theme.palette.background.paper,
+          '& .label': {
+            marginBottom: theme.spacing(1),
+          },
         },
       });
     }, { index: 1 },

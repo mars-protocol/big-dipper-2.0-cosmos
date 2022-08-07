@@ -15,7 +15,7 @@ export const useStyles = () => {
           height: '50vh',
           [theme.breakpoints.up('lg')]: {
             height: '100%',
-            minHeight: '65vh',
+            minHeight: 'calc(100vh - 200px)',
           },
         },
       });

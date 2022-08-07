@@ -18,7 +18,7 @@ export const useStyles = () => {
           transition: '0.2s ease-in-out',
           position: 'fixed',
           width: '100%',
-          paddingTop: '3.5rem',
+          paddingTop: '80px',
           height: '100vh',
           '&.open': {
             opacity: 1,

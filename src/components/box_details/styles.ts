@@ -11,8 +11,8 @@ export const useStyles = () => {
 
         },
         item: {
-          padding: theme.spacing(2, 0),
-          color: theme.palette.custom.fonts.fontTwo,
+          padding: theme.spacing(1, 0),
+          color: theme.palette.custom.fonts.fontOne,
           '&:first-child': {
             paddingTop: 0,
           },

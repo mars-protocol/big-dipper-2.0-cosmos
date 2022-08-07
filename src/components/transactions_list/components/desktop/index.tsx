@@ -78,9 +78,9 @@ const Desktop: React.FC<TransactionsListState> = ({
                 ref={columnRef}
                 columnCount={columns.length}
                 columnWidth={(index) => getColumnWidth(width, index)}
-                height={50}
+                height={36}
                 rowCount={1}
-                rowHeight={() => 50}
+                rowHeight={() => 36}
                 width={width}
               >
                 {({

@@ -20,7 +20,6 @@ const ActionBar: React.FC<{
 }) => {
   const {
     ref: heightRef,
-    height,
   } = useGetComponentDimension();
   const classes = useStyles();
   return (
@@ -34,7 +33,6 @@ const ActionBar: React.FC<{
         <SettingsList />
       </div>
       <NetworkList
-        actionHeight={height}
         className={classnames(classes.networkList, {
           open: isNetwork,
         })}

@@ -20,8 +20,9 @@ export const useStyles = () => {
         label: {
           marginBottom: theme.spacing(2),
           display: 'flex',
+          flexWrap: 'wrap',
           alignItems: 'center',
-          justifyContent: 'space-between',
+          justifyContent: 'flex-end',
         },
         seeMoreFooter: {
           paddingTop: theme.spacing(2),

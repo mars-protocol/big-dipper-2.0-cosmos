@@ -30,7 +30,7 @@ export const useStyles = () => {
           },
         },
         chartPercentLabel: {
-          fontSize: '2rem',
+          fontSize: '30.42px',
           fill: theme.palette.custom.fonts.fontOne,
         },
         chartExtraLabel: {

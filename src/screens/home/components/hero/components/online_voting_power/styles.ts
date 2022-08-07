@@ -43,15 +43,12 @@ export const useStyles = (percentage: number | string) => {
           },
         },
         item: {
-          '&:not(:last-child)': {
-            marginBottom: theme.spacing(2),
-          },
           '& .label': {
             marginBottom: theme.spacing(1),
-            color: theme.palette.custom.fonts.fontThree,
+            color: theme.palette.custom.fonts.fontOne,
           },
           '& p.value': {
-            color: theme.palette.custom.fonts.fontTwo,
+            color: theme.palette.custom.fonts.fontOne,
             '& .positive': {
               color: theme.palette.custom.tags.one,
             },

@@ -8,7 +8,7 @@ export const useStyles = () => {
           minHeight: '500px',
           height: '50vh',
           [theme.breakpoints.up('lg')]: {
-            minHeight: '65vh',
+            minHeight: 'calc(100vh - 200px)',
           },
         },
         mobile: {
