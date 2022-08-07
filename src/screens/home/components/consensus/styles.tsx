@@ -20,6 +20,7 @@ export const useStyles = () => {
           alignItems: 'center',
           justifyContent: 'space-around',
           flexDirection: 'column',
+          marginTop: theme.spacing(2),
         },
         label: {
           marginBottom: theme.spacing(2),

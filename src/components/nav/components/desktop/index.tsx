@@ -30,7 +30,7 @@ const Desktop: React.FC<{
   return (
     <ClickAwayListener onClickAway={turnOffAll}>
       <div
-        className={classnames(className, classes.root)}
+        className={className}
       >
         <AppBar
           position="relative"
