@@ -28,25 +28,28 @@ export const useStyles = () => {
             marginTop: '1rem',
           },
           '& h3': {
-            color: theme.palette.custom.fonts.fontThree,
-            fontWeight: 500,
-            marginBottom: theme.spacing(2),
-            marginTop: theme.spacing(2),
+            color: theme.palette.custom.fonts.fontOne,
+            fontSize: '15px',
+            fontWeight: 600,
+            lineHeight: '20px',
+            marginBottom: theme.spacing(1),
           },
           '& .links__group': {
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'flex-start',
             '& a': {
-              margin: '0.5rem 0',
+              marginBottom: theme.spacing(1),
+              fontSize: '15px',
+              lineHeight: '24px',
+              opacity: '0.6',
               color: 'inherit',
               textDecoration: 'none',
-              paddingBottom: '1rem',
               borderBottom: `solid 1px ${theme.palette.custom.fonts.fontFour}`,
               transition: '0.2s',
               width: '100%',
               '&:hover': {
-                color: Color(theme.palette.custom.fonts.fontOne).alpha(0.6).string(),
+                opacity: '1',
               },
             },
             '&.forbole': {
@@ -93,10 +96,6 @@ export const useStyles = () => {
               gridColumn: '1/5',
               display: 'grid',
               gridTemplateColumns: 'repeat(3, 1fr)',
-              marginTop: 0,
-            },
-            '& h3': {
-              fontSize: '1.125rem',
               marginTop: 0,
             },
             '& .footer__social': {

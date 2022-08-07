@@ -65,11 +65,10 @@ export const common = {
     },
     h2: {
       fontSize: '1.5rem',
-      letterSpacing: 0,
     },
     h3: {
-      fontSize: '1.25rem',
-      letterSpacing: 0.15,
+      fontSize: '15px',
+      lineHeight: '24px',
     },
     h4: {
       fontSize: '1rem',

@@ -34,7 +34,7 @@ export const useStyles = () => {
           background: 'transparent',
           color: theme?.palette?.custom?.fonts?.fontTwo ?? 'inherit',
           width: '100%',
-          zIndex: theme.zIndex.drawer + 1,
+          zIndex: theme.zIndex.drawer - 1,
           transition: theme.transitions.create(['width', 'margin'], {
             easing: theme.transitions.easing.easeIn,
             duration: theme.transitions.duration.enteringScreen,
@@ -49,7 +49,6 @@ export const useStyles = () => {
             boxShadow: 'none',
           },
           '&.open': {
-            width: `calc(100% - ${OPEN_DRAWER_MARGIN}px)`,
             transition: theme.transitions.create(['width', 'margin'], {
               easing: theme.transitions.easing.easeIn,
               duration: theme.transitions.duration.enteringScreen,

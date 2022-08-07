@@ -16,7 +16,7 @@ export const useStyles = () => {
             display: 'flex',
             flex: 1,
             flexWrap: 'wrap',
-            paddingLeft: '50px',
+            paddingLeft: '72px',
             minHeight: '100vh',
             alignContent: 'flex-start',
           },
