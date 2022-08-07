@@ -5,12 +5,11 @@ export const useStyles = () => {
     (theme) => {
       const OPEN_DRAWER_WIDTH = 191;
       const CLOSED_DRAWER_WIDTH = 59;
-      const OPEN_DRAWER_MARGIN = 141;
 
       return ({
         chevron: {
-          width: '34px',
-          margin: '0 0 0 7px',
+          width: '24px',
+          margin: '0 5px 0 12px',
           padding: theme.spacing(2, 1),
           fill: 'none',
           transformOrigin: 'center',
