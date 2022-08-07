@@ -20,7 +20,7 @@ export const useStyles = () => {
             gridTemplateColumns: 'repeat(2, 1fr)',
           },
           [theme.breakpoints.up('lg')]: {
-            gridGap: theme.spacing(2),
+            gridGap: theme.spacing(4),
             gridTemplateColumns: 'repeat(4, 1fr)',
           },
         },

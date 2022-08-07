@@ -125,7 +125,7 @@ export const useStyles = () => {
           [theme.breakpoints.up('lg')]: {
             display: 'grid',
             gridTemplateColumns: '200px auto',
-            gridGap: theme.spacing(2),
+            gridGap: theme.spacing(4),
             alignItems: 'center',
           },
         },

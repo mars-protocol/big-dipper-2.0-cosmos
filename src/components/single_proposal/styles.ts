@@ -9,7 +9,7 @@ export const useStyles = () => {
           [theme.breakpoints.up('lg')]: {
             display: 'grid',
             gridTemplateColumns: '50px auto min-content',
-            gridGap: theme.spacing(2),
+            gridGap: theme.spacing(4),
           },
         },
         header: {

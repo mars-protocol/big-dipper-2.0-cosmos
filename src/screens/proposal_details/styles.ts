@@ -11,7 +11,7 @@ export const useStyles = () => {
           gridTemplateRows: 'min-content min-content auto',
           gridGap: theme.spacing(1),
           [theme.breakpoints.up('lg')]: {
-            gridGap: theme.spacing(2),
+            gridGap: theme.spacing(4),
             gridTemplateColumns: 'repeat(3, 1fr)',
           },
         },

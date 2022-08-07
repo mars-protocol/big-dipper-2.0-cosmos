@@ -69,7 +69,7 @@ export const useStyles = () => {
         statusRoot: {
           display: 'grid',
           gridTemplateColumns: 'repeat(1, 1fr)',
-          gridGap: theme.spacing(2),
+          gridGap: theme.spacing(4),
           [theme.breakpoints.up('md')]: {
             gridTemplateColumns: 'repeat(2, 1fr)',
           },

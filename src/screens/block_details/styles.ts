@@ -14,7 +14,7 @@ export const useStyles = () => {
           gridTemplateColumns: '1fr',
           gridGap: theme.spacing(1),
           [theme.breakpoints.up('lg')]: {
-            gridGap: theme.spacing(2),
+            gridGap: theme.spacing(4),
           },
         },
         signatures: {

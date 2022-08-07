@@ -14,7 +14,7 @@ export const useStyles = () => {
             color: theme.palette.custom.fonts.highlight,
           },
           [theme.breakpoints.up('lg')]: {
-            gridGap: theme.spacing(2),
+            gridGap: theme.spacing(4),
           },
         },
         messages: {

@@ -20,11 +20,17 @@
 html {
   font-size: 16px;
   box-sizing: border-box;
+    scrollbar-width: none;
 }
+
 
 * {
   margin: 0;
   padding: 0;
+}
+
+*::-webkit-scrollbar {
+    display: none;
 }
 
 *,
@@ -39,6 +45,7 @@ body {
   background-size: cover;
   background-image: url('/images/bg.svg');
   background-position: center top;
+  cursor: default;
 }
 
 a {
