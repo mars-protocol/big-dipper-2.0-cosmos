@@ -51,7 +51,7 @@ export const useStyles = () => {
             background: 'pink',
             height: '100%',
             position: 'absolute',
-            borderRadius: theme.shape.borderRadius,
+            borderRadius: '16px',
             left: 0,
           },
           '&.yes': {

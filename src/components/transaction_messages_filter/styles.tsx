@@ -16,7 +16,7 @@ export const useStyles = () => {
         },
         select: {
           display: 'flex',
-          borderRadius: theme.shape.borderRadius,
+          borderRadius: '16px',
           background: theme.palette.custom.general.surfaceTwo,
           color: theme.palette.custom.fonts.fontThree,
           '& .MuiSelect-icon': {

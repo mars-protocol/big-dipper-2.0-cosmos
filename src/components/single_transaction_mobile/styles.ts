@@ -12,10 +12,10 @@ export const useStyles = () => {
           marginBottom: theme.spacing(2),
           '& .label': {
             marginBottom: theme.spacing(1),
-            color: theme.palette.custom.fonts.fontThree,
+            color: theme.palette.custom.fonts.fontTwo,
           },
           '& p.value': {
-            color: theme.palette.custom.fonts.fontTwo,
+            color: theme.palette.custom.fonts.fontOne,
           },
           '& a': {
             color: theme.palette.custom.fonts.highlight,

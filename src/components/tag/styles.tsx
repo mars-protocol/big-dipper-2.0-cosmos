@@ -6,7 +6,7 @@ export const useStyles = () => {
     (theme) => {
       return ({
         root: {
-          borderRadius: theme.shape.borderRadius,
+          borderRadius: '16px',
           padding: theme.spacing(0.5, 1),
           display: 'inline-block',
           color: theme.palette.custom.tags.zero,

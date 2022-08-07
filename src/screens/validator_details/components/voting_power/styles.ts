@@ -22,7 +22,7 @@ export const useStyles = (percentage: number) => {
         chart: {
           display: 'flex',
           height: '8px',
-          borderRadius: theme.shape.borderRadius,
+          borderRadius: '16px',
           background: Color(theme.palette.primary.main).alpha(0.2).string(),
           overflow: 'hidden',
           margin: theme.spacing(2, 0),
@@ -38,10 +38,10 @@ export const useStyles = (percentage: number) => {
           },
           '& .label': {
             marginBottom: theme.spacing(1),
-            color: theme.palette.custom.fonts.fontThree,
+            color: theme.palette.custom.fonts.fontTwo,
           },
           '& p.value': {
-            color: theme.palette.custom.fonts.fontTwo,
+            color: theme.palette.custom.fonts.fontOne,
             '& .positive': {
               color: theme.palette.custom.tags.one,
             },

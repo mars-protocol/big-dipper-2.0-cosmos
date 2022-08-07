@@ -33,8 +33,9 @@ export const useStyles = () => {
         content: {
           width: '100%',
           background: theme.palette.background.paper,
+          border: '7px solid #421f32',
           marginTop: theme.spacing(2),
-          borderRadius: theme.shape.borderRadius,
+          borderRadius: '16px',
           padding: theme.spacing(1),
           display: 'flex',
           flexDirection: 'column',

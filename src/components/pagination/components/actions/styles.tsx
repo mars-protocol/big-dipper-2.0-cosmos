@@ -30,7 +30,7 @@ export const useStyles = () => {
         button: {
           height: '30px',
           width: '30px',
-          borderRadius: theme.shape.borderRadius,
+          borderRadius: '16px',
           padding: theme.spacing(1),
           display: 'flex',
           alignItems: 'center',
@@ -64,7 +64,7 @@ export const useStyles = () => {
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            borderRadius: theme.shape.borderRadius,
+            borderRadius: '16px',
             paddingLeft: theme.spacing(1),
             paddingRight: theme.spacing(3),
           },

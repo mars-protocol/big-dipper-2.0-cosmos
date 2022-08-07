@@ -8,14 +8,9 @@ export const useStyles = () => {
       const OPEN_DRAWER_MARGIN = 141;
 
       return ({
-        root: {
-          '& .MuiDrawer-paperAnchorDockedLeft': {
-            border: 'none',
-          },
-        },
         chevron: {
-          width: '43px',
-          margin: theme.spacing(0, 1),
+          width: '34px',
+          margin: '0 0 0 7px',
           padding: theme.spacing(2, 1),
           fill: 'none',
           transformOrigin: 'center',

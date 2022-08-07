@@ -23,13 +23,13 @@ export const useStyles = () => {
         status: {
           padding: theme.spacing(0.5, 1),
           color: 'white',
-          borderRadius: theme.shape.borderRadius,
+          borderRadius: '16px',
           background: theme.palette.custom.general.icon,
           '&.retired': {
-            background: theme.palette.custom.primaryData.four,
+            background: theme.palette.background.paper,
           },
           '&.testnet': {
-            background: theme.palette.custom.primaryData.three,
+            background: theme.palette.background.paper,
           },
           '&.mainnet': {
             background: theme.palette.primary.main,

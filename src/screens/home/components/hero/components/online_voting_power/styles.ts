@@ -24,7 +24,7 @@ export const useStyles = (percentage: number | string) => {
         chart: {
           display: 'flex',
           height: '11px',
-          borderRadius: theme.shape.borderRadius,
+          borderRadius: '16px',
           background: Color(theme.palette.primary.main).alpha(0.2).string(),
           overflow: 'hidden',
           margin: theme.spacing(2, 0),

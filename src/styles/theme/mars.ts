@@ -34,7 +34,7 @@ export const marsThemeOverride = {
     background: {
       image: 'url("/images/bg.svg")',
       default: backgroundDefault,
-      paper: 'linear-gradient(132.82deg, rgba(11, 14, 32, 0.64) 5.03%, rgba(52, 20, 33, 0.9) 73.08%)',
+      paper: 'linear-gradient(99.79deg, rgba(8, 11, 30, 0.79) 8.17%, rgba(52, 20, 33, 0.9) 94.54%)',
     },
     divider: 'rgba(255, 255, 255, 0.1)',
     text: {
@@ -53,12 +53,6 @@ export const marsThemeOverride = {
         fontThree,
         fontFour: '#999999',
         highlight: primaryColor,
-      },
-      primaryData: {
-        one: 'linear-gradient(132.82deg, rgba(11, 14, 32, 0.64) 5.03%, rgba(52, 20, 33, 0.9) 73.08%)',
-        two: 'linear-gradient(132.82deg, rgba(11, 14, 32, 0.64) 5.03%, rgba(52, 20, 33, 0.9) 73.08%)',
-        three: 'linear-gradient(132.82deg, rgba(11, 14, 32, 0.64) 5.03%, rgba(52, 20, 33, 0.9) 73.08%)',
-        four: 'linear-gradient(132.82deg, rgba(11, 14, 32, 0.64) 5.03%, rgba(52, 20, 33, 0.9) 73.08%)',
       },
       results: {
         pass: '#008169',
@@ -110,11 +104,17 @@ export const marsThemeOverride = {
   },
   overrides: {
     MuiDrawer: {
+      paperAnchorDockedLeft: {
+        boxSizing: 'content-box',
+        borderRight: '7px solid #421f32',
+        borderBottom: '7px solid #421f32',
+      },
+
       paper: {
         height: 'unset',
-        borderRadius: '0 0 12px 0',
+        borderRadius: '0 0 16px 0',
         overflow: 'hidden',
-        background: 'linear-gradient(132.82deg, rgba(11, 14, 32, 0.64) 5.03%, rgba(52, 20, 33, 0.9) 73.08%)',
+        background: 'linear-gradient(99.79deg, rgba(8, 11, 30, 0.79) 8.17%, rgba(52, 20, 33, 0.9) 94.54%)',
         transition: 'all .2s cubic-bezier(0.4, 0, 1, 1) 0ms',
 
         '&.open': {
@@ -210,6 +210,11 @@ export const marsThemeOverride = {
         fontSize: '13.33px',
         lineHeight: '20px',
         letterSpacing: 'unset',
+        '&.label': {
+          fontSize: '13.33px',
+          lineHeight: '20px',
+          fontWeight: 600,
+        },
       },
       caption: {
         fontSize: '13.33px',

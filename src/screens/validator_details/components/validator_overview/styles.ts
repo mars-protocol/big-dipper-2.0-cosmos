@@ -91,7 +91,7 @@ export const useStyles = () => {
             justifySelf: 'flex-start',
           },
           '& p.value': {
-            color: theme.palette.custom.fonts.fontTwo,
+            color: theme.palette.custom.fonts.fontOne,
             '&.good': {
               color: theme.palette.custom.condition.one,
             },

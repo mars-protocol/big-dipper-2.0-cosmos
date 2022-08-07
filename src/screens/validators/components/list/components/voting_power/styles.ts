@@ -17,7 +17,7 @@ export const useStyles = (percentage: number, topVotingPower:boolean) => {
         chart: {
           display: 'flex',
           height: '2px',
-          borderRadius: theme.shape.borderRadius,
+          borderRadius: '16px',
           background: (
             topVotingPower
               ? Color(theme.palette.custom.fonts.fontFour).alpha(0.2).string()
