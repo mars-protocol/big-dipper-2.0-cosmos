@@ -61,5 +61,9 @@
   "profilesNotEnabled": "Profiles not enabled for this explorer",
   "insertValidDtag": "Please insert a valid dtag",
   "invalidAddress": "Invalid Address",
-  "mars": "Mars"
+  "mars": "Mars",
+  "selectANetwork": "Select A Network",
+  "testnet": "Mars Hub Testnet",
+  "mainnet": "Mars Hub Mainnet",
+  "chainId": "ChainId: {{id}}"
 }

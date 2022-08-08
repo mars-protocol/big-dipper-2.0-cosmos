@@ -14,7 +14,6 @@ const Navbar = (props:NavbarProps) => {
   const selected = useRecoilValue(readSelectedNetwork);
   const {
     isOpen,
-    openNetwork,
     toggleNavMenus,
   } = props;
 
@@ -31,7 +30,6 @@ const Navbar = (props:NavbarProps) => {
         {/* =================================== */}
         <div
           className={classes.network}
-          onClick={openNetwork}
           role="button"
         >
           <p className="text">

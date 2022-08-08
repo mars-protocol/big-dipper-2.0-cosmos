@@ -1,7 +1,7 @@
 {
   "title": "Mars Hub Block Explorer",
   "network": "testnet",
-  "icon": "https://marsprotocol.io/mars_logo_colored.svg",
+  "icon": "/images/mars-red.svg",
   "logo": {
     "default": "/images/mars-protocol.svg"
   },

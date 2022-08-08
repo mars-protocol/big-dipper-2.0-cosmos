@@ -108,10 +108,6 @@ button {
   text-transform: none;
 }
 
-svg {
-  fill: #999999;
-}
-
 .scrollbar::-webkit-scrollbar {
   display: none;
 }

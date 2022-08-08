@@ -38,7 +38,7 @@ export const useStyles = () => {
           },
           [theme.breakpoints.up('lg')]: {
             gridColumn: '1 / 3',
-            height: '364px',
+            height: '380px',
           },
         },
         tokenomics: {

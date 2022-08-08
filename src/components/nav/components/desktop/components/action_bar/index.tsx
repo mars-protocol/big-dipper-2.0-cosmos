@@ -25,7 +25,7 @@ const ActionBar: React.FC<{
   return (
     <div className={classnames(className, classes.root)} ref={heightRef}>
       <div className={classes.actions}>
-        <SearchBar className={classnames(classes.searchBar, { open: isNetwork })} />
+        <SearchBar className={classnames(classes.searchBar)} />
         <Network
           className={classnames(classes.network, { open: isNetwork })}
           toggleNetwork={toggleNetwork}
@@ -33,9 +33,8 @@ const ActionBar: React.FC<{
         <SettingsList />
       </div>
       <NetworkList
-        className={classnames(classes.networkList, {
-          open: isNetwork,
-        })}
+        open={isNetwork}
+        handleCancel={toggleNetwork}
       />
     </div>
   );

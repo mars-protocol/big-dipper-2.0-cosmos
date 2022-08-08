@@ -7,7 +7,7 @@ export const useStyles = (percentage: number) => {
       return ({
         root: {
           '& .MuiTypography-h2': {
-            marginBottom: theme.spacing(2),
+            marginBottom: theme.spacing(4),
           },
         },
         data: {

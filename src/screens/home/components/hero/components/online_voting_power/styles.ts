@@ -9,7 +9,7 @@ export const useStyles = (percentage: number | string) => {
           display: 'flex',
           flexDirection: 'column',
           '& .MuiTypography-h2': {
-            marginBottom: theme.spacing(2),
+            marginBottom: theme.spacing(4),
           },
         },
         data: {

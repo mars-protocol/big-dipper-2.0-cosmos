@@ -8,8 +8,8 @@ export const useStyles = () => {
 
       return ({
         chevron: {
-          width: '24px',
-          margin: '0 5px 0 12px',
+          width: '16px',
+          margin: '0 9px 0 16px',
           padding: theme.spacing(2, 1),
           fill: 'none',
           transformOrigin: 'center',
@@ -38,12 +38,6 @@ export const useStyles = () => {
             easing: theme.transitions.easing.easeIn,
             duration: theme.transitions.duration.enteringScreen,
           }),
-          '& svg': {
-            fill: theme?.palette?.custom?.fonts?.fontOne,
-            '& path': {
-              fill: `${theme?.palette?.custom?.fonts?.fontOne} !important`,
-            },
-          },
           '&.MuiPaper-elevation4': {
             boxShadow: 'none',
           },

@@ -23,7 +23,7 @@ export const useStyles = () => {
           marginTop: theme.spacing(2),
         },
         label: {
-          marginBottom: theme.spacing(2),
+          marginBottom: theme.spacing(4),
         },
         chart: {
           '& .recharts-radial-bar-background-sector': {

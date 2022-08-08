@@ -9,12 +9,13 @@ export const useStyles = () => {
             width: '100%',
             background: theme.palette.background.paper,
             padding: theme.spacing(0.4, 1.2),
-            borderRadius: '16px',
+            borderRadius: '8px',
+            border: '1px solid rgba(255, 255, 255, 0.2)',
           },
           '& .MuiInputBase-input': {
             textOverflow: 'ellipsis',
             '&::placeholder': {
-              color: theme.palette.custom.fonts.fontFour,
+              color: theme.palette.custom.fonts.fontTwo,
             },
           },
         },

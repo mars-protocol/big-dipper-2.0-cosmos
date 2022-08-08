@@ -1,4 +1,5 @@
 const backgroundDefault = '#141621';
+const backgroundPaper = 'linear-gradient(99.79deg, rgba(8, 11, 30, 0.79) 8.17%, rgba(52, 20, 33, 0.9) 94.54%)';
 const surfaceOne = '#141621';
 const surfaceTwo = '#562a3b';
 const fontOne = '#FFFFFF';
@@ -6,6 +7,7 @@ const fontTwo = '#FFFFFF99';
 const fontThree = '#818181';
 const icon = '#9F9F9F';
 const primaryColor = '#14A693';
+const borderDefault = '7px solid #421f32';
 
 /** Custom theme overrides for mars mode */
 export const marsThemeOverride = {
@@ -34,11 +36,11 @@ export const marsThemeOverride = {
     background: {
       image: 'url("/images/bg.svg")',
       default: backgroundDefault,
-      paper: 'linear-gradient(99.79deg, rgba(8, 11, 30, 0.79) 8.17%, rgba(52, 20, 33, 0.9) 94.54%)',
+      paper: backgroundPaper,
     },
     divider: 'rgba(255, 255, 255, 0.1)',
     text: {
-      primary: '#E6E6E6',
+      primary: '#FFFFFF',
       secondary: '#AAAAAB',
     },
     custom: {
@@ -106,10 +108,9 @@ export const marsThemeOverride = {
     MuiDrawer: {
       paperAnchorDockedLeft: {
         boxSizing: 'content-box',
-        borderRight: '7px solid #421f32',
-        borderBottom: '7px solid #421f32',
+        borderRight: borderDefault,
+        borderBottom: borderDefault,
       },
-
       paper: {
         height: 'unset',
         borderRadius: '0 0 16px 0',
@@ -125,6 +126,13 @@ export const marsThemeOverride = {
         '& .MuiList-padding': {
           padding: 0,
         },
+      },
+    },
+    MuiDialog: {
+      paper: {
+        background: backgroundPaper,
+        border: borderDefault,
+        borderRadius: '16px',
       },
     },
     MuiTableBody: {
@@ -182,7 +190,7 @@ export const marsThemeOverride = {
           color: fontOne,
         },
         '& .MuiTabs-indicator': {
-          backgroundColor: fontOne,
+          backgroundColor: 'transparent',
         },
       },
     },
@@ -230,6 +238,8 @@ export const marsThemeOverride = {
         },
       },
       body2: {
+        fontSize: '15px',
+        lineHeight: '20px',
         '&.label': {
           textTransform: 'uppercase',
           letterSpacing: '3px',

@@ -21,10 +21,8 @@ export const useStyles = () => {
         searchBar: {
           flex: 1,
           marginRight: theme.spacing(2),
-          '&.open': {
-            '& .MuiInputBase-root': {
-              background: 'transparent',
-            },
+          '& .MuiSvgIcon-root': {
+            fill: theme.palette.custom.fonts.fontOne,
           },
         },
         network: {
@@ -34,18 +32,11 @@ export const useStyles = () => {
           },
         },
         networkList: {
-          width: '100%',
-          zIndex: 1201,
-          opacity: 0,
-          visibility: 'hidden',
-          transition: '0.2s ease-in-out',
-          position: 'fixed',
-          top: 0,
-          left: 0,
+          display: 'none',
+
           '&.open': {
             opacity: 1,
-            background: theme.palette.background.default,
-            visibility: 'visible',
+            display: 'block',
           },
         },
       });

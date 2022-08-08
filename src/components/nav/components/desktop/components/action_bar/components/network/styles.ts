@@ -24,12 +24,19 @@ export const useStyles = () => {
           },
           '& .MuiSvgIcon-root': {
             marginLeft: theme.spacing(1),
+            fill: theme?.palette?.custom?.fonts?.fontOne,
+            '& path': {
+              fill: `${theme?.palette?.custom?.fonts?.fontOne}`,
+            },
           },
         },
         icon: {
+          display: 'flex',
+          alignItems: 'center',
           width: 17,
           marginRight: theme.spacing(1),
         },
+
       });
     },
   )();

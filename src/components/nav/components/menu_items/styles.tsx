@@ -7,6 +7,9 @@ export const useStyles = () => {
         root: {
           '& .MuiListItemIcon-root': {
             minWidth: '48px',
+            '& svg': {
+              fill: theme.palette.custom.general.icon,
+            },
           },
           '&.MuiListItem-gutters': {
             padding: theme.spacing(2, 2.25),

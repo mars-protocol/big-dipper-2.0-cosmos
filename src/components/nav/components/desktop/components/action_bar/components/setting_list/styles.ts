@@ -12,9 +12,9 @@ export const useStyles = () => {
             cursor: 'pointer',
           },
           '& svg': {
-            fill: theme.palette.custom.general.icon,
+            fill: theme.palette.custom.fonts.fontOne,
             '& path': {
-              fill: theme.palette.custom.general.icon,
+              fill: theme.palette.custom.fonts.fontOne,
             },
           },
         },
@@ -38,8 +38,16 @@ export const useStyles = () => {
         },
         dialog: {
           '& .MuiDialog-paper': {
-            background: theme.palette.background.default,
             width: '500px',
+          },
+          '& .MuiDialogActions-root': {
+            justifyContent: 'center',
+            padding: theme.spacing(0, 0, 2),
+
+            '& .MuiButtonBase-root': {
+              background: theme.palette.primary.main,
+              color: theme.palette.custom.fonts.fontOne,
+            },
           },
         },
         formItem: {
@@ -48,12 +56,10 @@ export const useStyles = () => {
             width: '100%',
           },
           '& .form-item--label': {
+            fontWeight: 700,
+            color: theme.palette.custom.fonts.fontTwo,
             marginBottom: theme.spacing(1),
           },
-        },
-        version: {
-          color: theme.palette.custom.fonts.fontFour,
-          marginLeft: theme.spacing(1),
         },
       });
     },

@@ -13,7 +13,7 @@ export const useStyles = () => {
           flexDirection: 'column',
         },
         label: {
-          marginBottom: theme.spacing(2),
+          marginBottom: theme.spacing(4),
         },
         data: {
           display: 'flex',

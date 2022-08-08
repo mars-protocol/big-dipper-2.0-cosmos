@@ -178,10 +178,9 @@ export const common = {
     },
     MuiTabs: {
       root: {
-        marginBottom: '16px',
 
         '&.MuiTabs-root, & .MuiTab-root': {
-          minHeight: '40px',
+          minHeight: '56px',
         },
         '& .MuiTab-textColorInherit': {
           opacity: 1,

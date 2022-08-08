@@ -4,7 +4,7 @@ import { ExpandMore } from '@material-ui/icons';
 import { Typography } from '@material-ui/core';
 import { useRecoilValue } from 'recoil';
 import { readSelectedNetwork } from '@recoil/big_dipper_networks';
-import { chainConfig } from '@configs';
+import MarsLogo from '@assets/mars-red.svg';
 import { useStyles } from './styles';
 
 const Network:React.FC<{
@@ -22,7 +22,9 @@ const Network:React.FC<{
       onClick={toggleNetwork}
       role="button"
     >
-      <img src={chainConfig.icon} className={classes.icon} alt="icon" />
+      <div className={classes.icon}>
+        <MarsLogo />
+      </div>
       <Typography variant="body1">
         {selected}
       </Typography>
