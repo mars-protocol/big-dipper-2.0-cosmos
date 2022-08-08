@@ -9,7 +9,7 @@ export const useStyles = () => {
           background: theme.palette.primary.main,
           borderRadius: '16px',
           border: '7px solid #421f32',
-          height: '100px',
+          height: '130px',
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'flex-start',
