@@ -9,7 +9,7 @@ export const useStyles = () => {
           width: '100%',
           position: 'fixed',
           top: '0',
-          background: theme.palette.background.default,
+          background: '#29121D',
         },
         screens: {
           opacity: 0,

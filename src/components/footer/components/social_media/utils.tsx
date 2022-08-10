@@ -1,5 +1,9 @@
 import {
-  TelegramSVG, TwitterSVG,
+  DiscordSVG,
+  GithubSVG,
+  MediumSVG,
+  RedditSVG,
+  TelegramSVG, TwitterSVG, YoutTubeSVG,
 } from '@src/components/svg/index#';
 import React from 'react';
 
@@ -9,13 +13,38 @@ export const socialMediaLinks:{
   url: string;
 }[] = [
   {
-    component: <TelegramSVG />,
-    className: 'telegram',
-    url: 'https://t.me/forbole',
-  },
-  {
     component: <TwitterSVG />,
     className: 'twitter',
-    url: 'https://twitter.com/bigdipperlive',
+    url: 'https://twitter.com/mars_protocol',
+  },
+  {
+    component: <MediumSVG />,
+    className: 'medium',
+    url: 'https://mars-protocol.medium.com',
+  },
+  {
+    component: <DiscordSVG />,
+    className: 'discord',
+    url: 'https://discord.marsprotocol.io',
+  },
+  {
+    component: <RedditSVG />,
+    className: 'reddit',
+    url: 'https://reddit.marsprotocol.io',
+  },
+  {
+    component: <TelegramSVG />,
+    className: 'telegram',
+    url: 'https://telegram.marsprotocol.io',
+  },
+  {
+    component: <YoutTubeSVG />,
+    className: 'youtube',
+    url: 'https://youtube.marsprotocol.io',
+  },
+  {
+    component: <GithubSVG />,
+    className: 'github',
+    url: 'https://github.marsprotocol.io',
   },
 ];

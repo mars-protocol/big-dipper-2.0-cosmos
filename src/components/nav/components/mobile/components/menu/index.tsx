@@ -4,19 +4,18 @@ import Link from 'next/link';
 import {
   Drawer,
   MenuItem,
-  Typography,
 } from '@material-ui/core';
 import { useRouter } from 'next/router';
 import useTranslation from 'next-translate/useTranslation';
-import Language from '@assets/icon-language.svg';
+/* import Language from '@assets/icon-language.svg';
 import ThemeIcon from '@assets/icon-theme.svg';
 import {
   ExpandMoreOutlined,
-} from '@material-ui/icons';
+} from '@material-ui/icons'; */
 import { useStyles } from './styles';
 import { MenuItems } from '../../..';
 import {
-  useLanguageDrawer, useThemeDrawer,
+  useLanguageDrawer,
 } from './hooks';
 import { MenuProps } from './types';
 
@@ -35,7 +34,7 @@ const Menu = (props: MenuProps) => {
   const classes = useStyles();
   const languageOptions = useLanguageDrawer(lang, toggleNavMenus);
 
-  const themeOptions = useThemeDrawer(toggleNavMenus);
+  /* const themeOptions = useThemeDrawer(toggleNavMenus); */
   return (
     <>
       {/* ================================== */}
@@ -80,7 +79,7 @@ const Menu = (props: MenuProps) => {
         {/* ========================= */}
         {/* Footer Actions */}
         {/* ========================= */}
-        <div className={classes.footerActions}>
+        {/* <div className={classes.footerActions}>
           <div
             className={classes.language}
             role="button"
@@ -100,7 +99,7 @@ const Menu = (props: MenuProps) => {
             </span>
             <Typography variant="caption">{t(themeOptions.theme)}</Typography>
           </div>
-        </div>
+        </div> */}
       </div>
     </>
   );

@@ -6,7 +6,7 @@ export const useStyles = () => {
     (theme) => {
       return ({
         root: {
-          background: theme?.palette?.background.default,
+          background: 'linear-gradient(132.82deg, rgba(11, 14, 32, 1) 5.03%, rgba(52, 20, 33, 1) 73.08%)',
           display: 'flex',
           flexDirection: 'column',
         },
@@ -25,6 +25,12 @@ export const useStyles = () => {
           alignItems: 'center',
           '& .MuiTypography-caption': {
             margin: '0 0.3rem',
+          },
+          '& svg': {
+            margin: theme.spacing(0, 1, 0, 0),
+            '& path': {
+              fill: theme.palette.custom.general.icon,
+            },
           },
         },
         theme: {

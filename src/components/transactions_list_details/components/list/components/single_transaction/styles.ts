@@ -9,7 +9,6 @@ export const useStyles = () => {
           marginTop: theme.spacing(2),
         },
         timeContainer: {
-          background: theme.palette.custom.general.surfaceTwo,
           padding: theme.spacing(1, 2),
           color: theme.palette.custom.fonts.fontTwo,
         },

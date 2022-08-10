@@ -1,5 +1,5 @@
 import React from 'react';
-import { useRouter } from 'next/router';
+/* import { useRouter } from 'next/router'; */
 import classnames from 'classnames';
 import useTranslation from 'next-translate/useTranslation';
 import SettingIcon from '@assets/icon-setting.svg';
@@ -25,7 +25,7 @@ const Settings: React.FC<{
   className?: string;
 }> = (props) => {
   const classes = useStyles();
-  const router = useRouter();
+  /* const router = useRouter(); */
   const {
     t, lang,
   } = useTranslation('common');
@@ -68,7 +68,7 @@ const Settings: React.FC<{
         </DialogTitle>
         <DialogContent>
           <form onSubmit={handleFormSubmit}>
-            <div className={classes.formItem}>
+            {/* <div className={classes.formItem}>
               <Typography className="form-item--label">
                 {t('language')}
               </Typography>
@@ -90,7 +90,7 @@ const Settings: React.FC<{
                     </MenuItem>
                   ))}
               </Select>
-            </div>
+            </div> */}
 
             <div className={classes.formItem}>
               <Typography className="form-item--label">

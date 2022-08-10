@@ -37,6 +37,10 @@ export const useStyles = () => {
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'flex-start',
+            marginTop: theme.spacing(2),
+            '&:first-child': {
+              marginTop: 0,
+            },
             '& a': {
               marginBottom: theme.spacing(1),
               fontSize: '15px',
@@ -87,6 +91,9 @@ export const useStyles = () => {
             '& .MuiDivider-root': {
               marginTop: theme.spacing(5),
             },
+            '& .links__group': {
+              marginTop: 0,
+            },
             '& .footer': {
               display: 'grid',
               gridTemplateColumns: 'repeat(3, 1fr)',
@@ -98,7 +105,9 @@ export const useStyles = () => {
               marginTop: 0,
             },
             '& .footer__social': {
-              display: 'block',
+              display: 'flex',
+              flex: 1,
+              alignItems: 'flex-end',
             },
           },
         },
