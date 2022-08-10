@@ -1,4 +1,3 @@
-import Color from 'color';
 import { makeStyles } from '@material-ui/core/styles';
 
 export const useStyles = () => {
@@ -7,8 +6,16 @@ export const useStyles = () => {
       const iconFill = theme.palette.type === 'light' ? theme.palette.custom.fonts.fontTwo : theme.palette.custom.general.icon;
       return ({
         root: {
-          '& .media': {
-            margin: '0 0.5rem',
+          margin: theme.spacing(1, 0),
+          display: 'flex',
+          flex: '0 0 100%',
+          flexWrap: 'nowrap',
+          flexDirection: 'row',
+          alignItems: 'center',
+
+          '& a.media': {
+            width: '30px',
+            margin: theme.spacing(0, 1.5),
             '&:first-child': {
               marginLeft: 0,
             },
@@ -21,7 +28,7 @@ export const useStyles = () => {
             },
             '&:hover': {
               '& path': {
-                fill: Color(iconFill).alpha(0.6).string(),
+                fill: theme.palette.custom.fonts.fontOne,
               },
             },
           },

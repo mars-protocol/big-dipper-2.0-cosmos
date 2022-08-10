@@ -72,7 +72,7 @@ export const useStyles = () => {
             },
           },
           [theme.breakpoints.up('md')]: {
-            paddingBottom: 0,
+            padding: theme.spacing(3, 5, 4, 12.5),
             '& .MuiDivider-root': {
               marginBottom: 0,
             },
@@ -89,7 +89,7 @@ export const useStyles = () => {
             },
             '& .footer': {
               display: 'grid',
-              gridTemplateColumns: 'repeat(4, 1fr)',
+              gridTemplateColumns: 'repeat(3, 1fr)',
             },
             '& .footer__links': {
               gridColumn: '1/5',
@@ -98,7 +98,7 @@ export const useStyles = () => {
               marginTop: 0,
             },
             '& .footer__social': {
-              justifyContent: 'flex-end',
+              display: 'block',
             },
           },
         },

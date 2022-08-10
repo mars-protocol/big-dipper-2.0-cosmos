@@ -3,7 +3,6 @@ import classnames from 'classnames';
 import Trans from 'next-translate/Trans';
 import useTranslation from 'next-translate/useTranslation';
 import {
-  Button,
   Divider,
   Typography,
 } from '@material-ui/core';
@@ -12,7 +11,7 @@ import {
 } from '@src/configs';
 import { SocialMedia } from './components';
 import {
-  footerLinks, donateLink,
+  footerLinks,
 } from './utils';
 import { useStyles } from './styles';
 
@@ -33,11 +32,12 @@ const Footer: React.FC<{className?: string}> = ({ className }) => {
         {/* links */}
         {/* ============================= */}
         <div className="footer__links">
-          {footerLinks.map((group) => {
+          {footerLinks.map((group, index) => {
             return (
               <div key={group.key} className={`${group.key} links__group`}>
                 <h3>{t(`common:${group.key}`)}</h3>
-                {
+                <>
+                  {
                     group.links.map((x) => {
                       return (
                         <a
@@ -51,32 +51,22 @@ const Footer: React.FC<{className?: string}> = ({ className }) => {
                       );
                     })
                   }
+                </>
+                <>
+                  {index === 2 && (
+                    <div className="footer__social">
+                      <SocialMedia />
+                    </div>
+                  )}
+                </>
               </div>
+
             );
           })}
           {/* ============================= */}
           {/* social */}
           {/* ============================= */}
-          <div className="footer__social">
-            <h3>{t('common:community')}</h3>
-            <SocialMedia />
-            <div>
-              <p className="footer__donate--excerpt">{t('common:donateExcerpt')}</p>
-              <a
-                href={donateLink.url}
-                target="_blank"
-                rel="noreferrer"
-              >
-                <Button
-                  className="footer__donate-button"
-                  variant="contained"
-                  color="primary"
-                >
-                  {t('common:donate')}
-                </Button>
-              </a>
-            </div>
-          </div>
+
         </div>
       </div>
       <Divider />

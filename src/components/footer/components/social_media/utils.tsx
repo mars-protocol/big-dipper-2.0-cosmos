@@ -1,10 +1,7 @@
-import React from 'react';
 import {
-  TelegramIcon,
-  LinkedinIcon,
-  TwitterIcon,
-  GithubIcon,
-} from '@icons';
+  TelegramSVG, TwitterSVG,
+} from '@src/components/svg/index#';
+import React from 'react';
 
 export const socialMediaLinks:{
   component: React.ReactNode;
@@ -12,23 +9,13 @@ export const socialMediaLinks:{
   url: string;
 }[] = [
   {
-    component: <TelegramIcon />,
+    component: <TelegramSVG />,
     className: 'telegram',
     url: 'https://t.me/forbole',
   },
   {
-    component: <LinkedinIcon />,
-    className: 'linkedin',
-    url: 'https://www.linkedin.com/company/forbole',
-  },
-  {
-    component: <TwitterIcon />,
+    component: <TwitterSVG />,
     className: 'twitter',
     url: 'https://twitter.com/bigdipperlive',
-  },
-  {
-    component: <GithubIcon />,
-    className: 'github',
-    url: 'https://github.com/forbole',
   },
 ];

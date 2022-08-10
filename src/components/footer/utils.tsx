@@ -1,51 +1,64 @@
-const FORBOLE_URL = 'https://www.forbole.com';
-const BIG_DIPPER_URL = 'https://bigdipper.live';
+const REDBANK_URL = 'https://app.marsprotocol.io';
+const FIELDS_URL = 'https://app.marsprotocol.io/#/fields';
+const COUNCIL_URL = 'https://council.marsprotocol.io';
+const BLOCK_EXPLORER = 'https://explorer.marsprotocol.io';
 
-export const donateLink = {
-  key: 'donate',
-  url: `${BIG_DIPPER_URL}/donate`,
-};
+const DOCS_URL = 'https://docs.marsprotocol.io';
+const LITEPAPER_URL = '/';
+const TERMS_URL = 'https://docs.marsprotocol.io/mars-protocol/terms-of-service/mars-terms-of-service';
+
+const BLOG_URL = 'https://blog.marsprotocol.io';
+const FORUM_URL = 'https://forum.marsprotocol.io';
 
 export const footerLinks = [
   {
-    key: 'company',
+    key: 'mars',
     links: [
       {
-        key: 'forbole',
-        url: FORBOLE_URL,
+        key: 'redBank',
+        url: REDBANK_URL,
       },
       {
-        key: 'stakeNow',
-        url: `${FORBOLE_URL}/stake-now`,
+        key: 'fieldsOfMars',
+        url: FIELDS_URL,
       },
       {
-        key: 'contact',
-        url: `${FORBOLE_URL}/contact`,
+        key: 'council',
+        url: COUNCIL_URL,
       },
       {
-        key: 'blog',
-        url: `${FORBOLE_URL}/blog`,
+        key: 'blockExplorer',
+        url: BLOCK_EXPLORER,
       },
     ],
   },
   {
-    key: 'bigDipper',
+    key: 'documentation',
     links: [
       {
-        key: 'about',
-        url: `${BIG_DIPPER_URL}/#about`,
+        key: 'docs',
+        url: DOCS_URL,
       },
       {
-        key: 'faq',
-        url: `${BIG_DIPPER_URL}/faq`,
+        key: 'litepaper',
+        url: LITEPAPER_URL,
       },
       {
-        key: 'termsAndConditions',
-        url: `${BIG_DIPPER_URL}/terms-and-conditions`,
+        key: 'termsOfService',
+        url: TERMS_URL,
+      },
+    ],
+  },
+  {
+    key: 'community',
+    links: [
+      {
+        key: 'blog',
+        url: BLOG_URL,
       },
       {
-        key: 'privacyPolicy',
-        url: `${BIG_DIPPER_URL}/privacy-policy`,
+        key: 'forum',
+        url: FORUM_URL,
       },
     ],
   },

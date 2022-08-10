@@ -41,7 +41,7 @@
   "nothingToShow": "Nothing to show",
   "notFound": "Not Found",
   "useValidatorAddress": "Please use a validator address instead",
-  "description": "Big Dipper is an open-source block explorer and token management tool serving over 10 proof-of-stake blockchains. It has been forked more than 100 times on GitHub and has served audiences from 140 countries and regions.",
+  "description": "Use the Mars Hub Block Explorer to search for transactions, addresses, validators, tokens, prices and other activities on the red planet.",
   "supply": "Supply",
   "blockTimeAgo": "Latest block displayed was {{time}}",
   "settings": "Settings",
@@ -65,5 +65,14 @@
   "selectANetwork": "Select A Network",
   "testnet": "Mars Hub Testnet",
   "mainnet": "Mars Hub Mainnet",
-  "chainId": "ChainId: {{id}}"
+  "chainId": "ChainId: {{id}}",
+  "redBank": "Red Bank",
+  "fieldsOfMars": "Fields of Mars",
+  "council": "Council",
+  "blockExplorer": "Block Explorer",
+  "documentation": "Documentation",
+  "docs": "Docs",
+  "litepaper": "Litepaper",
+  "termsOfService": "Terms of Service",
+  "forum": "Forum"
 }
