@@ -4,7 +4,7 @@ const COUNCIL_URL = 'https://council.marsprotocol.io';
 const BLOCK_EXPLORER = 'https://explorer.marsprotocol.io';
 
 const DOCS_URL = 'https://docs.marsprotocol.io';
-const LITEPAPER_URL = '/';
+const LITEPAPER_URL = 'https://mars-protocol.medium.com/mars-protocol-litepaper-1-0-60d1b024405a';
 const TERMS_URL = 'https://docs.marsprotocol.io/mars-protocol/terms-of-service/mars-terms-of-service';
 
 const BLOG_URL = 'https://blog.marsprotocol.io';
