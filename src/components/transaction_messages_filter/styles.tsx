@@ -13,6 +13,7 @@ export const useStyles = () => {
           width: theme.spacing(2),
           height: theme.spacing(2),
           marginRight: theme.spacing(1),
+          fill: theme.palette.custom.fonts.fontOne,
         },
         select: {
           display: 'flex',

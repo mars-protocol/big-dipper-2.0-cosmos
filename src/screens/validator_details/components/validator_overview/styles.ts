@@ -11,6 +11,7 @@ export const useStyles = () => {
           },
         },
         actionIcons: {
+          fill: theme.palette.custom.fonts.fontTwo,
           '&:hover': {
             cursor: 'pointer',
           },
