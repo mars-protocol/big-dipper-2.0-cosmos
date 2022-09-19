@@ -5,7 +5,7 @@ const BLOCK_EXPLORER = 'https://explorer.marsprotocol.io';
 
 const DOCS_URL = 'https://docs.marsprotocol.io';
 const LITEPAPER_URL = 'https://mars-protocol.medium.com/mars-protocol-litepaper-1-0-60d1b024405a';
-const TERMS_URL = 'https://docs.marsprotocol.io/mars-protocol/terms-of-service/mars-terms-of-service';
+const TERMS_URL = 'https://docs.marsprotocol.io/mars-protocol/terms-of-service/marsprotocol.io-terms-of-service';
 
 const BLOG_URL = 'https://blog.marsprotocol.io';
 const FORUM_URL = 'https://forum.marsprotocol.io';
