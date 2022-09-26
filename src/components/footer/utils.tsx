@@ -1,5 +1,5 @@
 const REDBANK_URL = 'https://app.marsprotocol.io';
-const FIELDS_URL = 'https://app.marsprotocol.io/#/fields';
+// const FIELDS_URL = 'https://app.marsprotocol.io/#/fields';
 const COUNCIL_URL = 'https://council.marsprotocol.io';
 const BLOCK_EXPLORER = 'https://explorer.marsprotocol.io';
 
@@ -17,10 +17,6 @@ export const footerLinks = [
       {
         key: 'redBank',
         url: REDBANK_URL,
-      },
-      {
-        key: 'fieldsOfMars',
-        url: FIELDS_URL,
       },
       {
         key: 'council',

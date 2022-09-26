@@ -15,12 +15,12 @@ export const socialMediaLinks:{
   {
     component: <TwitterSVG />,
     className: 'twitter',
-    url: 'https://twitter.com/mars_protocol',
+    url: 'https://twitter.marsprotocol.io',
   },
   {
     component: <MediumSVG />,
     className: 'medium',
-    url: 'https://mars-protocol.medium.com',
+    url: 'https://medium.marsprotocol.io',
   },
   {
     component: <DiscordSVG />,
