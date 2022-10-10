@@ -4,7 +4,7 @@ const COUNCIL_URL = 'https://council.marsprotocol.io';
 const BLOCK_EXPLORER = 'https://explorer.marsprotocol.io';
 
 const DOCS_URL = 'https://docs.marsprotocol.io';
-const LITEPAPER_URL = 'https://mars-protocol.medium.com/mars-protocol-litepaper-1-0-60d1b024405a';
+const WHITEPAPER_URL = 'https://whitepaper.marsprotocol.io';
 const TERMS_URL = 'https://docs.marsprotocol.io/mars-protocol/terms-of-service/marsprotocol.io-terms-of-service';
 
 const BLOG_URL = 'https://blog.marsprotocol.io';
@@ -36,8 +36,8 @@ export const footerLinks = [
         url: DOCS_URL,
       },
       {
-        key: 'litepaper',
-        url: LITEPAPER_URL,
+        key: 'whitepaper',
+        url: WHITEPAPER_URL,
       },
       {
         key: 'termsOfService',
