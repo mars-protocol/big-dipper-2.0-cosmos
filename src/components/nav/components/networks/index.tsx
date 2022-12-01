@@ -1,64 +1,48 @@
-import React from 'react';
+import MarsLogo from '@assets/mars-red.svg';
 import { Typography } from '@material-ui/core';
-import { useRecoilValue } from 'recoil';
-import { readNetworks } from '@recoil/big_dipper_networks';
+import useTranslation from 'next-translate/useTranslation';
+import React from 'react';
 import { useStyles } from './styles';
-import { SingleNetwork } from './components';
 
 const Networks:React.FC<{
   className?: string;
 }> = ({ className }) => {
-  const networks = useRecoilValue(readNetworks);
-  const classes = useStyles();
+  const classes = useStyles(); 
+  const {
+    t,
+  } = useTranslation('common');
+
+  const openUrl = (url: string) => {
+    window.open(url, '_self');
+  };
+
 
   return (
     <div className={className}>
-      {networks.map((x) => (
-        <div className={classes.networkList} key={x.name}>
-          <img src={x.logo} alt="logo" />
-          <div className="network">
-            <Typography variant="h4">
-              {x.name}
-            </Typography>
-            {x.mainnet.map((network) => (
-              <SingleNetwork
-                className="mainnet"
-                key={network.chainId}
-                url={network.url}
-                name={network.name}
-                chainId={network.chainId}
-              />
-            ))}
-            {x.testnet.map((network) => (
-              <SingleNetwork
-                className="testnet"
-                key={network.chainId}
-                url={network.url}
-                name={network.name}
-                chainId={network.chainId}
-              />
-            ))}
-            {x.retired.map((network) => (
-              <SingleNetwork
-                className="retired"
-                key={network.chainId}
-                url={network.url}
-                name={network.name}
-                chainId={network.chainId}
-              />
-            ))}
-            {x.other.map((network) => (
-              <SingleNetwork
-                className="other"
-                key={network.chainId}
-                url={network.url}
-                name={network.name}
-                chainId={network.chainId}
-              />
-            ))}
+          <div className={classes.network} role="button" onClick={() => { openUrl('https://explorer.marsprotocol.io/'); }}>
+            <div className={classes.image}><MarsLogo /></div>
+            <div className={classes.copy}>
+              <Typography variant="body2" className={classes.label}>
+                {t('mainnet')}
+              </Typography>
+              <Typography variant="body2" className={classes.description}>
+                {t('chainId', { id: 'mars-1' })}
+              </Typography>
+            </div>
           </div>
-        </div>
-      ))}
+          <div className={classes.content}>
+            <div className={classes.network} role="button" onClick={() => { openUrl('https://testnet-explorer.marsprotocol.io/'); }}>
+              <div className={classes.image}><MarsLogo /></div>
+              <div className={classes.copy}>
+                <Typography variant="body2" className={classes.label}>
+                  {t('testnet')}
+                </Typography>
+                <Typography variant="body2" className={classes.description}>
+                  {t('chainId', { id: 'ares-1' })}
+                </Typography>
+              </div>
+            </div>
+          </div>
     </div>
   );
 };

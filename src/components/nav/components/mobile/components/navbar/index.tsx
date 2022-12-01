@@ -1,11 +1,10 @@
-import React from 'react';
+import MarsLogo from '@assets/mars-protocol.svg';
+import { ExpandMore } from '@material-ui/icons';
+import { readSelectedNetwork } from '@recoil/big_dipper_networks';
+import { HOME } from '@utils/go_to_page';
 import classnames from 'classnames';
 import Link from 'next/link';
-import { ExpandMore } from '@material-ui/icons';
 import { useRecoilValue } from 'recoil';
-import { readSelectedNetwork } from '@recoil/big_dipper_networks';
-import MarsLogo from '@assets/mars-protocol.svg';
-import { HOME } from '@utils/go_to_page';
 import { useStyles } from './styles';
 import { NavbarProps } from './types';
 
@@ -15,6 +14,7 @@ const Navbar = (props:NavbarProps) => {
   const {
     isOpen,
     toggleNavMenus,
+    openNetwork
   } = props;
 
   return (
@@ -31,11 +31,13 @@ const Navbar = (props:NavbarProps) => {
         <div
           className={classes.network}
           role="button"
+          onClick={openNetwork}
         >
           <p className="text">
             {selected}
           </p>
           <ExpandMore fontSize="small" />
+          
         </div>
         {/* =================================== */}
         {/* Hamburger */}
