@@ -1,5 +1,5 @@
-import * as R from 'ramda';
 import { ThemeOptions } from '@material-ui/core/styles';
+import * as R from 'ramda';
 import { marsThemeOverride } from './mars';
 
 /** Common themes that don't change across light and dark theme */
@@ -138,12 +138,18 @@ export const common = {
       },
       condition: {
         zero: '#E8E8E8',
-        one: '#1EC490',
+        one: '#2BA891',
+        two: '#FF961B',
+        three: '#FC6A8A',
+      },
+      primaryData: {
+        zero: '#E8E8E8',
+        one: '#2BA891',
         two: '#FF961B',
         three: '#FC6A8A',
       },
       tokenomics: {
-        one: '#1EC490',
+        one: '#2BA891',
         two: '#497BFF',
         three: '#9F46EC',
       },
@@ -152,7 +158,7 @@ export const common = {
         one: '#EB3AA4',
         two: '#497BFF',
         three: '#FF961B',
-        four: '#1EC490',
+        four: '#2BA891',
         five: '#9F46EC',
       },
     },

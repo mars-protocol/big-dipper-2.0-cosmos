@@ -21,7 +21,7 @@ export const useStyles = (percentage: number, topVotingPower:boolean) => {
           background: (
             topVotingPower
               ? Color(theme.palette.custom.fonts.fontFour).alpha(0.2).string()
-              : Color(theme.palette.custom.primaryData.three).alpha(0.2).string()
+              : Color(theme.palette.custom.primaryData.one).alpha(0.2).string()
           ),
           overflow: 'hidden',
         },
@@ -30,7 +30,7 @@ export const useStyles = (percentage: number, topVotingPower:boolean) => {
           background: (
             topVotingPower
               ? theme.palette.custom.fonts.fontFour
-              : theme.palette.custom.primaryData.three
+              : theme.palette.custom.primaryData.one
           ),
         },
         content: {
@@ -42,7 +42,7 @@ export const useStyles = (percentage: number, topVotingPower:boolean) => {
             color: (
               topVotingPower
                 ? theme.palette.custom.fonts.fontFour
-                : theme.palette.custom.primaryData.three
+                : theme.palette.custom.primaryData.one
             ),
           },
           [theme.breakpoints.up('lg')]: {
