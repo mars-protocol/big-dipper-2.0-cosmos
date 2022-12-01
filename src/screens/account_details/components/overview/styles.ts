@@ -63,6 +63,9 @@ export const useStyles = () => {
               wordWrap: 'break-word',
             },
           },
+          '& svg': {
+            fill: theme.palette.custom.fonts.fontTwo,
+          },
           [theme.breakpoints.up('md')]: {
             padding: 0,
             '&:not(:last-child)': {

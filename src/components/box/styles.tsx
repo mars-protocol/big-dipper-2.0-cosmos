@@ -9,7 +9,6 @@ export const useStyles = () => {
           padding: theme.spacing(2),
           borderRadius: '16px',
           background: theme.palette.background.paper,
-          border: '7px solid #421f32',
         },
       });
     },

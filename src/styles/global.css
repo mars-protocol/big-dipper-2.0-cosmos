@@ -108,6 +108,10 @@ button {
   text-transform: none;
 }
 
+.Toastify__toast-body {
+  color: #333;
+}
+
 .scrollbar::-webkit-scrollbar {
   display: none;
 }
