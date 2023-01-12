@@ -6,6 +6,7 @@
   "votingTimeStart": "Voting time start",
   "proposalDetails": "Proposal Details",
   "type": "Type",
+  "messages": "Messages",
   "description": "Description",
   "votes": "Votes",
   "voter": "Voter",

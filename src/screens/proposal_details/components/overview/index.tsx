@@ -80,12 +80,6 @@ const Overview: React.FC<{ overview: OverviewType } & ComponentDefault> = ({
       <Divider />
       <div className={classes.content}>
         <Typography variant="body1" className="label">
-          {t('type')}
-        </Typography>
-        <Typography variant="body1" className="value">
-          {t(type)}
-        </Typography>
-        <Typography variant="body1" className="label">
           {t('proposer')}
         </Typography>
         <Name
@@ -144,6 +138,12 @@ const Overview: React.FC<{ overview: OverviewType } & ComponentDefault> = ({
           {t('description')}
         </Typography>
         <Markdown markdown={overview.description} />
+        <Typography variant="body1" className="label">
+          {t('messages')}
+        </Typography>
+        <Typography variant="body1" className="value">
+          {overview.content}
+        </Typography>
         {extra}
       </div>
     </Box>

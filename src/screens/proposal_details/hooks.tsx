@@ -7,7 +7,9 @@ import {
   useProposalDetailsQuery,
   ProposalDetailsQuery,
 } from '@graphql/types/general_types';
+import DOMPurify from 'dompurify';
 import { ProposalState } from './types';
+
 
 export const useProposalDetails = () => {
   const router = useRouter();
@@ -68,12 +70,14 @@ export const useProposalDetails = () => {
       let votingEndTime = R.pathOr(DEFAULT_TIME, ['proposal', 0, 'votingEndTime'], data);
       votingEndTime = votingEndTime === DEFAULT_TIME ? null : votingEndTime;
 
+      const metadata = JSON.parse(R.pathOr('', ['proposal', 0, 'metadata'], data));
+
       const overview = {
         proposer: R.pathOr('', ['proposal', 0, 'proposer'], data),
-        content: R.pathOr('', ['proposal', 0, 'content'], data),
-        title: R.pathOr('', ['proposal', 0, 'title'], data),
+        content: R.pathOr('', ['proposal', 0, 'messages'], data),
+        title: (metadata.title === '' ? 'No title available' : DOMPurify.sanitize(metadata.title)),
         id: R.pathOr('', ['proposal', 0, 'proposalId'], data),
-        description: R.pathOr('', ['proposal', 0, 'description'], data),
+        description: DOMPurify.sanitize(metadata.details),
         status: R.pathOr('', ['proposal', 0, 'status'], data),
         submitTime: R.pathOr('', ['proposal', 0, 'submitTime'], data),
         depositEndTime: R.pathOr('', ['proposal', 0, 'depositEndTime'], data),
