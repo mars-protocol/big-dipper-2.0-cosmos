@@ -5,7 +5,7 @@ import { SearchBar } from '../../..';
 import {
   Network,
   NetworkList,
-  SettingsList
+  SettingsList,
 } from './components';
 import { useStyles } from './styles';
 

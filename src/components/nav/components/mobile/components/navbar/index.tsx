@@ -14,7 +14,7 @@ const Navbar = (props:NavbarProps) => {
   const {
     isOpen,
     toggleNavMenus,
-    openNetwork
+    openNetwork,
   } = props;
 
   return (
@@ -37,7 +37,6 @@ const Navbar = (props:NavbarProps) => {
             {selected}
           </p>
           <ExpandMore fontSize="small" />
-          
         </div>
         {/* =================================== */}
         {/* Hamburger */}
