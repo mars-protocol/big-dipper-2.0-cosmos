@@ -87,6 +87,18 @@ const Overview: React.FC<{ overview: OverviewType } & ComponentDefault> = ({
           address={proposer.address}
         />
         {
+          !!overview.authors && (
+            <>
+              <Typography variant="body1" className="label">
+                {t('authors')}
+              </Typography>
+              <Typography variant="body1" className="value">
+                {overview.authors}
+              </Typography>
+            </>
+          )
+        }
+        {
           !!overview.submitTime && (
             <>
               <Typography variant="body1" className="label">
@@ -138,12 +150,38 @@ const Overview: React.FC<{ overview: OverviewType } & ComponentDefault> = ({
           {t('description')}
         </Typography>
         <Markdown markdown={overview.description} />
+        {
+          !!overview.forumURL && (
+            <>
+              <Typography variant="body1" className="label">
+                {t('proposalForumUrl')}
+              </Typography>
+              <Typography variant="body1" className="value">
+                {overview.forumURL}
+              </Typography>
+            </>
+          )
+        }
+        {
+          !!overview.voteContext && (
+            <>
+              <Typography variant="body1" className="label">
+                {t('voteContext')}
+              </Typography>
+              <Typography variant="body1" className="value">
+                {overview.voteContext}
+              </Typography>
+            </>
+          )
+        }
         <Typography variant="body1" className="label">
           {t('messages')}
         </Typography>
-        <Typography variant="body1" className="value">
-          {overview.content}
-        </Typography>
+        <pre className="pre">
+          <code>
+            {JSON.stringify(JSON.parse(overview.content), null, 4)}
+          </code>
+        </pre>
         {extra}
       </div>
     </Box>

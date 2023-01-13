@@ -27,6 +27,9 @@ export const useProposalDetails = () => {
       depositEndTime: '',
       votingStartTime: '',
       votingEndTime: '',
+      authors: '',
+      forumURL: '',
+      voteContext: '',
     },
   });
 
@@ -75,14 +78,17 @@ export const useProposalDetails = () => {
       const overview = {
         proposer: R.pathOr('', ['proposal', 0, 'proposer'], data),
         content: R.pathOr('', ['proposal', 0, 'messages'], data),
-        title: (metadata.title === '' ? 'No title available' : DOMPurify.sanitize(metadata.title)),
+        title: (metadata.title === '' ? 'No title provided' : DOMPurify.sanitize(metadata.title)),
         id: R.pathOr('', ['proposal', 0, 'proposalId'], data),
-        description: DOMPurify.sanitize(metadata.details),
+        description: (metadata.details === '' ? 'No description provided' : DOMPurify.sanitize(metadata.details)),
         status: R.pathOr('', ['proposal', 0, 'status'], data),
         submitTime: R.pathOr('', ['proposal', 0, 'submitTime'], data),
         depositEndTime: R.pathOr('', ['proposal', 0, 'depositEndTime'], data),
         votingStartTime,
         votingEndTime,
+        authors: DOMPurify.sanitize(metadata.authors),
+        forumURL: metadata.proposal_forum_url,
+        voteContext: DOMPurify.sanitize(metadata.vote_option_context),
       };
 
       return overview;
