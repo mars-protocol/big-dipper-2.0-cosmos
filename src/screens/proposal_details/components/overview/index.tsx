@@ -80,18 +80,24 @@ const Overview: React.FC<{ overview: OverviewType } & ComponentDefault> = ({
       <Divider />
       <div className={classes.content}>
         <Typography variant="body1" className="label">
-          {t('type')}
-        </Typography>
-        <Typography variant="body1" className="value">
-          {t(type)}
-        </Typography>
-        <Typography variant="body1" className="label">
           {t('proposer')}
         </Typography>
         <Name
           name={proposerMoniker}
           address={proposer.address}
         />
+        {
+          !!overview.authors && (
+            <>
+              <Typography variant="body1" className="label">
+                {t('authors')}
+              </Typography>
+              <Typography variant="body1" className="value">
+                {overview.authors}
+              </Typography>
+            </>
+          )
+        }
         {
           !!overview.submitTime && (
             <>
@@ -141,9 +147,53 @@ const Overview: React.FC<{ overview: OverviewType } & ComponentDefault> = ({
           )
         }
         <Typography variant="body1" className="label">
-          {t('description')}
+          {t('summary')}
         </Typography>
-        <Markdown markdown={overview.description} />
+        <Markdown markdown={overview.summary} />
+        {
+          !!overview.description && (
+            <>
+              <Typography variant="body1" className="label">
+                {t('details')}
+              </Typography>
+              <Typography variant="body1" className="value">
+                {overview.description}
+              </Typography>
+            </>
+          )
+        }
+        {
+          !!overview.forumURL && (
+            <>
+              <Typography variant="body1" className="label">
+                {t('proposalForumUrl')}
+              </Typography>
+              <Typography variant="body1" className="value">
+                {overview.forumURL}
+              </Typography>
+            </>
+          )
+        }
+        {
+          !!overview.voteContext && (
+            <>
+              <Typography variant="body1" className="label">
+                {t('voteContext')}
+              </Typography>
+              <Typography variant="body1" className="value">
+                {overview.voteContext}
+              </Typography>
+            </>
+          )
+        }
+        <Typography variant="body1" className="label">
+          {t('messages')}
+        </Typography>
+        <pre className="pre">
+          <code>
+            {JSON.stringify(JSON.parse(overview.content), null, 4)}
+          </code>
+        </pre>
         {extra}
       </div>
     </Box>

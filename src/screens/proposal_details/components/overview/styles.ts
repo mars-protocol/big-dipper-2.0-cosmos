@@ -35,6 +35,17 @@ export const useStyles = () => {
             gridTemplateColumns: 'repeat(2, 1fr)',
           },
         },
+        pre: {
+          maxHeight: '400px',
+          overflow: 'auto',
+          padding: '1rem',
+          margin: '0',
+          background: theme.palette.background.default,
+          flex: 1,
+          '& code': {
+            whiteSpace: 'pre-wrap',
+          },
+        },
       });
     },
   )();

@@ -68,11 +68,11 @@ export const useProposals = () => {
 
   const formatProposals = (data: ProposalsQuery) => {
     return data.proposals.map((x) => {
-      const description = DOMPurify.sanitize(x.description);
+      const metadata = JSON.parse(x.metadata);
       return ({
-        description,
+        description: (metadata.summary === '' || !metadata.summary ? 'No summary provided' : DOMPurify.sanitize(metadata.summary)),
         id: x.proposalId,
-        title: x.title,
+        title: (metadata.title === '' ? 'No title available' : DOMPurify.sanitize(metadata.title)),
         status: x.status,
       });
     });

@@ -9,6 +9,10 @@ export type OverviewType = {
   votingStartTime: string | null;
   votingEndTime: string | null;
   content: string;
+  authors: string;
+  forumURL: string;
+  voteContext: string;
+  summary: string;
 }
 
 export type ProposalState = {

@@ -1,10 +1,9 @@
 query ProposalDetails($proposalId: Int) {
   proposal(where: {id: {_eq: $proposalId}}) {
     proposer: proposer_address
-    title
-    description
+    metadata
+    messages
     status
-    content
     proposalId: id
     submitTime: submit_time
     depositEndTime: deposit_end_time
