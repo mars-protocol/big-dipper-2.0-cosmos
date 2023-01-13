@@ -10,7 +10,6 @@ import {
 import DOMPurify from 'dompurify';
 import { ProposalState } from './types';
 
-
 export const useProposalDetails = () => {
   const router = useRouter();
   const [state, setState] = useState<ProposalState>({
@@ -22,6 +21,7 @@ export const useProposalDetails = () => {
       title: '',
       id: 0,
       description: '',
+      summary: '',
       status: '',
       submitTime: '',
       depositEndTime: '',
@@ -80,7 +80,8 @@ export const useProposalDetails = () => {
         content: R.pathOr('', ['proposal', 0, 'messages'], data),
         title: (metadata.title === '' ? 'No title provided' : DOMPurify.sanitize(metadata.title)),
         id: R.pathOr('', ['proposal', 0, 'proposalId'], data),
-        description: (metadata.details === '' ? 'No description provided' : DOMPurify.sanitize(metadata.details)),
+        description: DOMPurify.sanitize(metadata.details),
+        summary: (metadata.summary === '' || !metadata.summary ? 'No summary provided' : DOMPurify.sanitize(metadata.summary)),
         status: R.pathOr('', ['proposal', 0, 'status'], data),
         submitTime: R.pathOr('', ['proposal', 0, 'submitTime'], data),
         depositEndTime: R.pathOr('', ['proposal', 0, 'depositEndTime'], data),

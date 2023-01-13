@@ -147,9 +147,21 @@ const Overview: React.FC<{ overview: OverviewType } & ComponentDefault> = ({
           )
         }
         <Typography variant="body1" className="label">
-          {t('description')}
+          {t('summary')}
         </Typography>
-        <Markdown markdown={overview.description} />
+        <Markdown markdown={overview.summary} />
+        {
+          !!overview.description && (
+            <>
+              <Typography variant="body1" className="label">
+                {t('details')}
+              </Typography>
+              <Typography variant="body1" className="value">
+                {overview.description}
+              </Typography>
+            </>
+          )
+        }
         {
           !!overview.forumURL && (
             <>

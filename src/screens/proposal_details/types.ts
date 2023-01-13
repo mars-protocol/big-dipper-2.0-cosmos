@@ -12,6 +12,7 @@ export type OverviewType = {
   authors: string;
   forumURL: string;
   voteContext: string;
+  summary: string;
 }
 
 export type ProposalState = {

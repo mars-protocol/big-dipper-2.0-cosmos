@@ -70,7 +70,7 @@ export const useProposals = () => {
     return data.proposals.map((x) => {
       const metadata = JSON.parse(x.metadata);
       return ({
-        description: DOMPurify.sanitize(metadata.details),
+        description: (metadata.summary === '' || !metadata.summary ? 'No summary provided' : DOMPurify.sanitize(metadata.summary)),
         id: x.proposalId,
         title: (metadata.title === '' ? 'No title available' : DOMPurify.sanitize(metadata.title)),
         status: x.status,
