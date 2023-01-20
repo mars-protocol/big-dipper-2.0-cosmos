@@ -1,4 +1,6 @@
-import { Footer, Nav } from '@components';
+import {
+  Footer, Nav,
+} from '@components';
 import classnames from 'classnames';
 import CookieConsent from '../cookie_consent';
 import { useStyles } from './styles';
