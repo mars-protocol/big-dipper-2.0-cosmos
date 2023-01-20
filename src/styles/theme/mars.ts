@@ -7,6 +7,7 @@ const fontTwo = '#FFFFFF99';
 const fontThree = '#818181';
 const icon = '#9F9F9F';
 const primaryColor = '#14A693';
+const primaryColorLight = '#15bfa9';
 const borderDefault = '7px solid #421f32';
 
 /** Custom theme overrides for mars mode */
@@ -31,6 +32,7 @@ export const marsThemeOverride = {
     },
     primary: {
       main: primaryColor,
+      light: primaryColorLight,
       contrastText: '#000000',
     },
     background: {

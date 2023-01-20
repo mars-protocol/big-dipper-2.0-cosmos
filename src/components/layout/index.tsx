@@ -1,10 +1,8 @@
-import React from 'react';
+import { Footer, Nav } from '@components';
 import classnames from 'classnames';
-import {
-  Nav, Footer,
-} from '@components';
-import { LayoutProps } from './types';
+import CookieConsent from '../cookie_consent';
 import { useStyles } from './styles';
+import { LayoutProps } from './types';
 
 const Layout = (props:LayoutProps) => {
   const classes = useStyles();
@@ -26,6 +24,7 @@ const Layout = (props:LayoutProps) => {
         </div>
       </div>
       <Footer className={classes.footer} />
+      <CookieConsent />
     </div>
   );
 };

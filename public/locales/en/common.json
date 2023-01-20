@@ -74,5 +74,8 @@
   "docs": "Docs",
   "whitepaper": "Whitepaper",
   "termsOfService": "Terms of Service",
-  "forum": "Forum"
+  "forum": "Forum",
+  "understood": "Understood",
+  "cookieConsent": "This website uses cookies to improve its functionality and optimize content delivery. By using this website, you agree to the use of cookies for these purposes. Learn more, including how to modify your cookie settings, in Marsprotocol.io's <0>privacy</0> and <1>cookie</1> policies.",
+  "cookiePolicy": "Cookie Policy"
 }
