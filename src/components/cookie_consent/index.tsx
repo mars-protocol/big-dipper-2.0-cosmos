@@ -30,17 +30,14 @@ const CookieConsent = () => {
                 rel="nofollow noreferrer"
                 title={t('common:privacyPolicy')}
                 aria-label={t('common:privacyPolicy')}
-              >
-                privacy
-              </a>, <a
-                             href={COOKIE_POLICY_URL}
-                             target="_blank"
-                             rel="nofollow noreferrer"
-                             title={t('common:cookiePolicy')}
-                             aria-label={t('common:cookiePolicy')}
-                           >
-  cookie
-                                 </a>]}
+              />,
+                <a
+                  href={COOKIE_POLICY_URL}
+                  target="_blank"
+                  rel="nofollow noreferrer"
+                  title={t('common:cookiePolicy')}
+                  aria-label={t('common:cookiePolicy')}
+                />]}
             />
           </p>
           <Button

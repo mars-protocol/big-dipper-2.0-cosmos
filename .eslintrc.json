@@ -64,6 +64,7 @@
     }
   ],
   "rules": {
+    "jsx-a11y/anchor-has-content": "off",
     "react/destructuring-assignment": "off",
     "no-bitwise": "off",
     "@typescript-eslint/ban-types": "warn",
