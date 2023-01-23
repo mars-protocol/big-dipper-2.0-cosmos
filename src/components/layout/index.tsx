@@ -1,8 +1,7 @@
 import {
-  Footer, Nav,
+  Footer, Nav
 } from '@components';
 import classnames from 'classnames';
-import CookieConsent from '../cookie_consent';
 import { useStyles } from './styles';
 import { LayoutProps } from './types';
 
@@ -26,7 +25,6 @@ const Layout = (props:LayoutProps) => {
         </div>
       </div>
       <Footer className={classes.footer} />
-      <CookieConsent />
     </div>
   );
 };
