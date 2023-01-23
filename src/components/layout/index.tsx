@@ -1,5 +1,5 @@
 import {
-  Footer, Nav
+  Footer, Nav,
 } from '@components';
 import classnames from 'classnames';
 import { useStyles } from './styles';
