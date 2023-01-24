@@ -1,11 +1,10 @@
 const REDBANK_URL = 'https://app.marsprotocol.io';
-// const FIELDS_URL = 'https://app.marsprotocol.io/#/fields';
 const COUNCIL_URL = 'https://council.marsprotocol.io';
 const BLOCK_EXPLORER = 'https://explorer.marsprotocol.io';
 
 const DOCS_URL = 'https://docs.marsprotocol.io';
 const WHITEPAPER_URL = 'https://whitepaper.marsprotocol.io';
-const TERMS_URL = 'https://docs.marsprotocol.io/mars-protocol/terms-of-service/marsprotocol.io-terms-of-service';
+const TERMS_URL = 'https://docs.marsprotocol.io/docs/overview/legal/terms-of-service';
 
 const BLOG_URL = 'https://blog.marsprotocol.io';
 const FORUM_URL = 'https://forum.marsprotocol.io';
