@@ -1,24 +1,24 @@
 {
-  "title": "Desmos Block Explorer",
-  "network": "desmos-mainnet-1",
-  "icon": "https://raw.githubusercontent.com/forbole/big-dipper-assets/master/desmos/icon.svg?sanitize=true",
+  "title": "Mars Hub Block Explorer",
+  "network": "mainnet",
+  "icon": "/images/mars-red.svg",
   "logo": {
-    "default": "https://raw.githubusercontent.com/forbole/big-dipper-assets/master/desmos/logo.svg?sanitize=true"
+    "default": "/images/mars-protocol.svg"
   },
   "prefix": {
-    "consensus": "desmosvalcons",
-    "validator": "desmosvaloper",
-    "account": "desmos"
+    "consensus": "marsvalcons",
+    "validator": "marsvaloper",
+    "account": "mars"
   },
   "genesis": {
-    "time": "2021-07-13T08:00:00",
+    "time": "2022-01-31T15:00:00",
     "height": 1
   },
-  "primaryTokenUnit": "udsm",
-  "votingPowerTokenUnit": "udsm",
+  "primaryTokenUnit": "umars",
+  "votingPowerTokenUnit": "umars",
   "tokenUnits": {
-    "udsm": {
-      "display": "dsm",
+    "umars": {
+      "display": "mars",
       "exponent": 6
     }
   },
