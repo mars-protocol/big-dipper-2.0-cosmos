@@ -1,19 +1,17 @@
-import { useState } from 'react';
-import Big from 'big.js';
-import * as R from 'ramda';
-import numeral from 'numeral';
 import {
   useValidatorsQuery,
-  ValidatorsQuery,
+  ValidatorsQuery
 } from '@graphql/types/general_types';
-import { getValidatorCondition } from '@utils/get_validator_condition';
-import { formatToken } from '@utils/format_token';
 import { SlashingParams } from '@models';
 import { chainConfig } from '@src/configs';
+import { formatToken } from '@utils/format_token';
+import { getValidatorCondition } from '@utils/get_validator_condition';
+import Big from 'big.js';
+import numeral from 'numeral';
+import * as R from 'ramda';
+import { useState } from 'react';
 import {
-  ValidatorsState,
-  ItemType,
-  ValidatorType,
+  ItemType, ValidatorsState, ValidatorType
 } from './types';
 
 export const useValidators = () => {
@@ -24,7 +22,7 @@ export const useValidators = () => {
     items: [],
     votingPowerOverall: 0,
     tab: 0,
-    sortKey: 'validator.name',
+    sortKey: 'validator.votingPower',
     sortDirection: 'asc',
   });
 
@@ -43,6 +41,7 @@ export const useValidators = () => {
       });
     },
   });
+
 
   // ==========================
   // Parse data
