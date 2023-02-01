@@ -1,10 +1,10 @@
-import React from 'react';
-import classnames from 'classnames';
-import { useRecoilValue } from 'recoil';
-import { readMarket } from '@recoil/market';
-import useTranslation from 'next-translate/useTranslation';
-import { Typography } from '@material-ui/core';
 import FooterLogo from '@assets/mars-protocol.svg';
+import { Typography } from '@material-ui/core';
+import { readMarket } from '@recoil/market';
+import classnames from 'classnames';
+import useTranslation from 'next-translate/useTranslation';
+import React from 'react';
+import { useRecoilValue } from 'recoil';
 import { useStyles } from './styles';
 import { formatMarket } from './utils';
 
@@ -23,7 +23,7 @@ const TitleBar:React.FC<{
     <div className={classnames(className, classes.root)}>
       <FooterLogo className={classes.logo} />
       <div className={classes.content}>
-        {market.map((x) => (
+        {market.slice(0, 4).map((x) => (
           <div key={x.key} className={classes.item}>
             <Typography variant="body1" className="label">
               {t(x.key)}

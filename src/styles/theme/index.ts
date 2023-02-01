@@ -152,6 +152,8 @@ export const common = {
         one: '#2BA891',
         two: '#497BFF',
         three: '#9F46EC',
+        four: '#FF961B',
+        five: '#497BFF',
       },
       charts: {
         zero: '#E8E8E8',

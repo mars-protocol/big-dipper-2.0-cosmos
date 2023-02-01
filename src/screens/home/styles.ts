@@ -35,14 +35,15 @@ export const useStyles = () => {
         hero: {
           [theme.breakpoints.up('md')]: {
             gridColumn: '1 / 3',
+            height: '380px',
           },
           [theme.breakpoints.up('lg')]: {
             gridColumn: '1 / 3',
-            height: '380px',
+            height: '100%',
           },
         },
         tokenomics: {
-          height: '375px',
+          height: '520px',
           [theme.breakpoints.up('md')]: {
             gridColumn: '1 / 2',
           },

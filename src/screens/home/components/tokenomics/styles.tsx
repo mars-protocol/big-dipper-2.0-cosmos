@@ -17,7 +17,9 @@ export const useStyles = () => {
         },
         data: {
           display: 'flex',
+          flexWrap: 'wrap',
           '& .data__item': {
+            marginBottom: theme.spacing(1),
             width: '50%',
             whiteSpace: 'pre-wrap',
             '& .MuiTypography-caption': {
@@ -29,13 +31,17 @@ export const useStyles = () => {
           display: 'flex',
           alignItems: 'flex-start',
           justifyContent: 'flex-start',
+          marginTop: theme.spacing(2),
           flexWrap: 'wrap',
           width: '100%',
           '& .MuiTypography-caption': {
             color: theme.palette.custom.fonts.fontThree,
           },
           '& .legends__item': {
-            width: '50%',
+            width: '100%',
+            [theme.breakpoints.up('lg')]: {
+              width: '50%',
+            },
             '&:before': {
               content: '""',
               display: 'inline-block',
@@ -49,8 +55,17 @@ export const useStyles = () => {
             '&:nth-child(2):before': {
               background: theme.palette.custom.tokenomics.two,
             },
-            '&:last-child:before': {
+            '&:nth-child(3):before': {
               background: theme.palette.custom.tokenomics.three,
+            },
+            '&:nth-child(4):before': {
+              background: theme.palette.custom.tokenomics.four,
+            },
+            '&:nth-child(5):before': {
+              background: theme.palette.custom.tokenomics.five,
+            },
+            '&:nth-child(6):before': {
+              background: theme.palette.custom.tokenomics.six,
             },
             '& .caption__percent': {
               color: theme.palette.custom.fonts.fontThree,

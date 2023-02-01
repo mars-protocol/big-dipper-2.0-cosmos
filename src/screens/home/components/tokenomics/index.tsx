@@ -1,20 +1,22 @@
-import React from 'react';
-import classnames from 'classnames';
-import numeral from 'numeral';
-import { Typography } from '@material-ui/core';
-import useTranslation from 'next-translate/useTranslation';
 import {
   Box, CustomToolTip,
 } from '@components';
-import {
-  PieChart,
-  Pie,
-  Cell,
-  Tooltip,
-} from 'recharts';
 import { chainConfig } from '@configs';
-import { useStyles } from './styles';
+import { Typography } from '@material-ui/core';
+import { readMarket } from '@recoil/market';
+import { useGetBalances } from '@src/hooks/use_get_balance';
+import classnames from 'classnames';
+import useTranslation from 'next-translate/useTranslation';
+import numeral from 'numeral';
+import React, {
+  useEffect, useState,
+} from 'react';
+import {
+  Cell, Pie, PieChart, Tooltip,
+} from 'recharts';
+import { useRecoilValue } from 'recoil';
 import { useTokenomics } from './hooks';
+import { useStyles } from './styles';
 
 const Tokenomics:React.FC<{
   className?: string;
@@ -24,30 +26,84 @@ const Tokenomics:React.FC<{
     classes, theme,
   } = useStyles();
   const { state } = useTokenomics();
+  const vestingBalances = useGetBalances('mars14hj2tavq8fpesdwxxcu44rty3hh90vhujrvcmstl4zr3txmfvw9smxjtde');
+  const safetyFundBalances = useGetBalances();
+  const marketState = useRecoilValue(readMarket);
+
+  const [vesting, setVesting] = useState<number | undefined>();
+  const [safetyFund, setSafetyFund] = useState<number | undefined>();
+
+  useEffect(() => {
+    const vestingResult = async () => {
+      const vestingInfo = await vestingBalances;
+      const vestingValue = Number(vestingInfo) / 1000000;
+      setVesting(vestingValue);
+    };
+
+    const safetyFundResult = async () => {
+      const safetyFundInfo = await safetyFundBalances;
+      const safetyFundValue = Number(safetyFundInfo) / 1000000;
+      setSafetyFund(safetyFundValue);
+    };
+
+    if (!vesting) vestingResult();
+    if (!safetyFund) safetyFundResult();
+  }, [vestingBalances, safetyFundBalances]);
+
+  const genesisStake = 50000000;
+  const staked = state.bonded > genesisStake ? state.bonded - genesisStake : state.bonded;
+  const communityPool = Number(marketState.communityPool.value);
+  const community = state.bonded > genesisStake ? communityPool + genesisStake : communityPool;
+  const circulating = state.total - community - vesting - safetyFund;
 
   const data = [
     {
-      legendKey: 'bonded',
-      percentKey: 'bondedPercent',
-      value: numeral(state.bonded).format('0,0'),
-      rawValue: state.bonded,
-      percent: `${numeral((state.bonded * 100) / state.total).format('0.00')}%`,
+      legendKey: 'circulating',
+      percentKey: 'circulatingPercent',
+      value: numeral(circulating).format('0,0'),
+      rawValue: circulating,
+      percent: `${numeral((circulating * 100) / state.total).format('0.00')}%`,
       fill: theme.palette.custom.tokenomics.one,
     },
     {
-      legendKey: 'unbonded',
-      percentKey: 'unbondedPercent',
-      value: numeral(state.unbonded).format('0,0'),
-      rawValue: state.unbonded,
-      percent: `${numeral((state.unbonded * 100) / state.total).format('0.00')}%`,
+      legendKey: 'bonded',
+      percentKey: 'bondedPercent',
+      value: numeral(staked).format('0,0'),
+      rawValue: staked,
+      percent: `${numeral((staked * 100) / state.total).format('0.00')}%`,
       fill: theme.palette.custom.tokenomics.two,
     },
     {
       legendKey: 'unbonding',
+      percentKey: 'unbondingPercent',
       value: numeral(state.unbonding).format('0,0'),
       rawValue: state.unbonding,
       percent: `${numeral((state.unbonding * 100) / state.total).format('0.00')}%`,
       fill: theme.palette.custom.tokenomics.three,
+    },
+    {
+      legendKey: 'vesting',
+      percentKey: 'vestingPercent',
+      value: numeral(vesting).format('0,0'),
+      rawValue: vesting,
+      percent: `${numeral((vesting * 100) / state.total).format('0.00')}%`,
+      fill: theme.palette.custom.tokenomics.four,
+    },
+    {
+      legendKey: 'community',
+      percentKey: 'communityPercent',
+      value: numeral(community).format('0,0'),
+      rawValue: community,
+      percent: `${numeral((community * 100) / state.total).format('0.00')}%`,
+      fill: theme.palette.custom.tokenomics.five,
+    },
+    {
+      legendKey: 'safetyFund',
+      percentKey: 'safetyFundPercent',
+      value: numeral(safetyFund).format('0,0'),
+      rawValue: safetyFund,
+      percent: `${numeral((safetyFund * 100) / state.total).format('0.00')}%`,
+      fill: theme.palette.custom.tokenomics.five,
     },
   ];
 
@@ -57,7 +113,7 @@ const Tokenomics:React.FC<{
         {t('tokenomics')}
       </Typography>
       <div className={classes.data}>
-        {data.slice(0, 2).map((x) => (
+        {data.map((x) => (
           <div className="data__item" key={x.percentKey}>
             <Typography variant="h4">
               {x.value}
@@ -65,9 +121,7 @@ const Tokenomics:React.FC<{
               {chainConfig.tokenUnits[state.denom]?.display?.toUpperCase()}
             </Typography>
             <Typography variant="caption">
-              {t(x.percentKey, {
-                percent: x.percent,
-              })}
+              {t(x.legendKey)}
             </Typography>
           </div>
         ))}
@@ -131,7 +185,9 @@ const Tokenomics:React.FC<{
               return (
                 <div className="legends__item" key={x.legendKey}>
                   <Typography variant="caption">
-                    {t(x.legendKey)}
+                    {t(x.percentKey, {
+                      percent: x.percent === '0.00%' && x.rawValue > 0 ? '< 0.00%' : x.percent,
+                    })}
                   </Typography>
                 </div>
               );

@@ -1,16 +1,17 @@
-import React from 'react';
-import numeral from 'numeral';
 import { Typography } from '@material-ui/core';
 import useTranslation from 'next-translate/useTranslation';
-import { useStyles } from './styles';
+import numeral from 'numeral';
+import React from 'react';
 import { useOnlineVotingPower } from './hooks';
+import { useStyles } from './styles';
 
 const OnlineVotingPower: React.FC<ComponentDefault> = () => {
   const { t } = useTranslation('home');
   const { state } = useOnlineVotingPower();
 
-  const votingPowerPercent = state.totalVotingPower === 0
-    ? numeral(0) : numeral((state.votingPower / state.totalVotingPower) * 100);
+  const isVotingPowerPercentHigherThan100 = state.votingPower / state.totalVotingPower > 100;
+  const votingPowerPercent = isVotingPowerPercentHigherThan100
+    ? numeral(100) : numeral((state.votingPower / state.totalVotingPower) * 100);
 
   const classes = useStyles(votingPowerPercent.format(0));
 
