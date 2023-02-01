@@ -9,7 +9,7 @@ const OnlineVotingPower: React.FC<ComponentDefault> = () => {
   const { t } = useTranslation('home');
   const { state } = useOnlineVotingPower();
 
-  const isVotingPowerPercentHigherThan100 = state.votingPower / state.totalVotingPower > 100;
+  const isVotingPowerPercentHigherThan100 = (state.votingPower / state.totalVotingPower) * 100 > 100;
   const votingPowerPercent = isVotingPowerPercentHigherThan100
     ? numeral(100) : numeral((state.votingPower / state.totalVotingPower) * 100);
 
