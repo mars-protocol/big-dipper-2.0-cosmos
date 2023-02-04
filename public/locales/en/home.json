@@ -22,6 +22,7 @@
   "unbonding": "Unstaking",
   "community": "Community Pool",
   "vesting": "Vesting",
+  "genesisStake": "Temporary Genesis Stake",
   "safetyFund": "Safety Fund",
   "others": "others",
   "latestBlocks": "Latest Blocks",

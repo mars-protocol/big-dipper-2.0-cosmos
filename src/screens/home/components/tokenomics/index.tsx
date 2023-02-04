@@ -18,7 +18,7 @@ import { useRecoilValue } from 'recoil';
 import { useTokenomics } from './hooks';
 import { useStyles } from './styles';
 
-const Tokenomics:React.FC<{
+const Tokenomics: React.FC<{
   className?: string;
 }> = ({ className }) => {
   const { t } = useTranslation('home');
@@ -26,12 +26,18 @@ const Tokenomics:React.FC<{
     classes, theme,
   } = useStyles();
   const { state } = useTokenomics();
-  const vestingBalances = useGetBalances('mars14hj2tavq8fpesdwxxcu44rty3hh90vhujrvcmstl4zr3txmfvw9smxjtde');
+  const vestingBalances = useGetBalances(
+    'mars14hj2tavq8fpesdwxxcu44rty3hh90vhujrvcmstl4zr3txmfvw9smxjtde',
+  );
   const safetyFundBalances = useGetBalances();
+  const incentivesBalances = useGetBalances(
+    'mars1krxwf5e308jmclyhfd9u92kp369l083wvxkp6n',
+  );
   const marketState = useRecoilValue(readMarket);
 
   const [vesting, setVesting] = useState<number | undefined>();
   const [safetyFund, setSafetyFund] = useState<number | undefined>();
+  const [incentives, setIncentives] = useState<number | undefined>();
 
   useEffect(() => {
     const vestingResult = async () => {
@@ -46,14 +52,23 @@ const Tokenomics:React.FC<{
       setSafetyFund(safetyFundValue);
     };
 
+    const incentivesResult = async () => {
+      const incentivesInfo = await incentivesBalances;
+      const incentivesValue = Number(incentivesInfo) / 1000000;
+      setIncentives(incentivesValue);
+    };
+
     if (!vesting) vestingResult();
     if (!safetyFund) safetyFundResult();
-  }, [vestingBalances, safetyFundBalances]);
+    if (!incentives) incentivesResult();
+  }, [vestingBalances, safetyFundBalances, incentivesBalances]);
 
   const genesisStake = 50000000;
   const staked = state.bonded > genesisStake ? state.bonded - genesisStake : state.bonded;
   const communityPool = Number(marketState.communityPool.value);
-  const community = state.bonded > genesisStake ? communityPool + genesisStake : communityPool;
+  const community = (state.bonded > genesisStake
+    ? communityPool + genesisStake
+    : communityPool) + incentives;
   const circulating = state.total - community - vesting - safetyFund;
 
   const data = [
@@ -78,7 +93,9 @@ const Tokenomics:React.FC<{
       percentKey: 'unbondingPercent',
       value: numeral(state.unbonding).format('0,0'),
       rawValue: state.unbonding,
-      percent: `${numeral((state.unbonding * 100) / state.total).format('0.00')}%`,
+      percent: `${numeral((state.unbonding * 100) / state.total).format(
+        '0.00',
+      )}%`,
       fill: theme.palette.custom.tokenomics.three,
     },
     {
@@ -120,19 +137,12 @@ const Tokenomics:React.FC<{
               {' '}
               {chainConfig.tokenUnits[state.denom]?.display?.toUpperCase()}
             </Typography>
-            <Typography variant="caption">
-              {t(x.legendKey)}
-            </Typography>
+            <Typography variant="caption">{t(x.legendKey)}</Typography>
           </div>
         ))}
       </div>
       <div className={classes.content}>
-
-        <PieChart
-          width={200}
-          height={100}
-          cy={100}
-        >
+        <PieChart width={200} height={100} cy={100}>
           <Pie
             stroke="none"
             // cornerRadius={40}
@@ -150,9 +160,7 @@ const Tokenomics:React.FC<{
             isAnimationActive={false}
           >
             {data.map((entry) => {
-              return (
-                <Cell key={entry.legendKey} fill={entry.fill} />
-              );
+              return <Cell key={entry.legendKey} fill={entry.fill} />;
             })}
           </Pie>
           <Tooltip
@@ -180,19 +188,20 @@ const Tokenomics:React.FC<{
         </PieChart>
 
         <div className={classes.legends}>
-          {
-            data.map((x) => {
-              return (
-                <div className="legends__item" key={x.legendKey}>
-                  <Typography variant="caption">
-                    {t(x.percentKey, {
-                      percent: x.percent === '0.00%' && x.rawValue > 0 ? '< 0.00%' : x.percent,
-                    })}
-                  </Typography>
-                </div>
-              );
-            })
-          }
+          {data.map((x) => {
+            return (
+              <div className="legends__item" key={x.legendKey}>
+                <Typography variant="caption">
+                  {t(x.percentKey, {
+                    percent:
+                      x.percent === '0.00%' && x.rawValue > 0
+                        ? '< 0.00%'
+                        : x.percent,
+                  })}
+                </Typography>
+              </div>
+            );
+          })}
         </div>
       </div>
     </Box>

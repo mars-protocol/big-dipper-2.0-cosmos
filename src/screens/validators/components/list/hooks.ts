@@ -1,6 +1,6 @@
 import {
   useValidatorsQuery,
-  ValidatorsQuery
+  ValidatorsQuery,
 } from '@graphql/types/general_types';
 import { SlashingParams } from '@models';
 import { chainConfig } from '@src/configs';
@@ -11,7 +11,7 @@ import numeral from 'numeral';
 import * as R from 'ramda';
 import { useState } from 'react';
 import {
-  ItemType, ValidatorsState, ValidatorType
+  ItemType, ValidatorsState, ValidatorType,
 } from './types';
 
 export const useValidators = () => {
@@ -42,37 +42,60 @@ export const useValidators = () => {
     },
   });
 
-
   // ==========================
   // Parse data
   // ==========================
   const formatValidators = (data: ValidatorsQuery) => {
-    const slashingParams = SlashingParams.fromJson(R.pathOr({}, ['slashingParams', 0, 'params'], data));
-    const votingPowerOverall = numeral(formatToken(
-      R.pathOr(0, ['stakingPool', 0, 'bondedTokens'], data),
-      chainConfig.votingPowerTokenUnit,
-    ).value).value();
+    const slashingParams = SlashingParams.fromJson(
+      R.pathOr({}, ['slashingParams', 0, 'params'], data),
+    );
+    const votingPowerOverall = numeral(
+      formatToken(
+        R.pathOr(0, ['stakingPool', 0, 'bondedTokens'], data),
+        chainConfig.votingPowerTokenUnit,
+      ).value,
+    ).value();
 
     const { signedBlockWindow } = slashingParams;
 
-    let formattedItems: ValidatorType[] = data.validator.filter((x) => x.validatorInfo).map((x) => {
-      const votingPower = R.pathOr(0, ['validatorVotingPowers', 0, 'votingPower'], x);
-      const votingPowerPercent = numeral((votingPower / votingPowerOverall) * 100).value();
+    let formattedItems: ValidatorType[] = data.validator
+      .filter((x) => x.validatorInfo)
+      .map((x) => {
+        const votingPower = R.pathOr(
+          0,
+          ['validatorVotingPowers', 0, 'votingPower'],
+          x,
+        );
+        const votingPowerPercent = numeral(
+          (votingPower / votingPowerOverall) * 100,
+        ).value();
 
-      const missedBlockCounter = R.pathOr(0, ['validatorSigningInfos', 0, 'missedBlocksCounter'], x);
-      const condition = getValidatorCondition(signedBlockWindow, missedBlockCounter);
+        const missedBlockCounter = R.pathOr(
+          0,
+          ['validatorSigningInfos', 0, 'missedBlocksCounter'],
+          x,
+        );
+        const condition = getValidatorCondition(
+          signedBlockWindow,
+          missedBlockCounter,
+        );
 
-      return ({
-        validator: x.validatorInfo.operatorAddress,
-        votingPower,
-        votingPowerPercent,
-        commission: R.pathOr(0, ['validatorCommissions', 0, 'commission'], x) * 100,
-        condition,
-        status: R.pathOr(0, ['validatorStatuses', 0, 'status'], x),
-        jailed: R.pathOr(false, ['validatorStatuses', 0, 'jailed'], x),
-        tombstoned: R.pathOr(false, ['validatorSigningInfos', 0, 'tombstoned'], x),
+        return {
+          validator: x.validatorInfo.operatorAddress,
+          votingPower,
+          votingPowerPercent,
+          commission:
+            R.pathOr(0, ['validatorCommissions', 0, 'commission'], x) * 100,
+          condition,
+          status: R.pathOr(0, ['validatorStatuses', 0, 'status'], x),
+          jailed: R.pathOr(false, ['validatorStatuses', 0, 'jailed'], x),
+          tombstoned: R.pathOr(
+            false,
+            ['validatorSigningInfos', 0, 'tombstoned'],
+            x,
+          ),
+        };
       });
-    });
 
     // get the top 34% validators
     formattedItems = formattedItems.sort((a, b) => {
@@ -141,7 +164,10 @@ export const useValidators = () => {
       sorted = sorted.filter((x) => {
         const formattedSearch = search.toLowerCase().replace(/ /g, '');
         return (
-          x.validator.name.toLowerCase().replace(/ /g, '').includes(formattedSearch)
+          x.validator.name
+            .toLowerCase()
+            .replace(/ /g, '')
+            .includes(formattedSearch)
           || x.validator.address.toLowerCase().includes(formattedSearch)
         );
       });

@@ -1,7 +1,7 @@
+import { chainConfig } from '@configs';
+import Big from 'big.js';
 import numeral from 'numeral';
 import * as R from 'ramda';
-import Big from 'big.js';
-import { chainConfig } from '@configs';
 
 /**
  * Util to help me correctly transform a base denom amount
@@ -45,7 +45,10 @@ export const formatToken = (value: number | string, denom = ''): TokenUnit => {
  * @param exponent the exponent to div by
  * @returns string value of formatted
  */
-export const formatTokenByExponent = (value: number | string, exponent = 0): string => {
+export const formatTokenByExponent = (
+  value: number | string,
+  exponent = 0,
+): string => {
   if (typeof value !== 'string' && typeof value !== 'number') {
     value = '0';
   }
@@ -66,7 +69,10 @@ export const formatTokenByExponent = (value: number | string, exponent = 0): str
  * @param toFixed defaults null
  * @returns formatted number with all the decimal places one can wish for
  */
-export const formatNumber = (tokenUnit: string, toFixed: number = null): string => {
+export const formatNumber = (
+  tokenUnit: string,
+  toFixed: number = null,
+): string => {
   // split whole number and decimal if any
   const split = `${tokenUnit}`.split('.');
   // whole number
@@ -89,7 +95,9 @@ export const formatNumber = (tokenUnit: string, toFixed: number = null): string 
     // merge the full number together and return it.
     // If for some insane reason after removing all the 0s we ended up with
     // '' in the decimal place we just return the full number
-    return `${formatWholeNumber}${formatDecimal.length ? '.' : ''}${formatDecimal}`;
+    return `${formatWholeNumber}${
+      formatDecimal.length ? '.' : ''
+    }${formatDecimal}`;
   }
 
   // else we return whole number

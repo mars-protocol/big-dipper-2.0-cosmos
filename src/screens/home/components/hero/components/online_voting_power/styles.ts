@@ -44,11 +44,14 @@ export const useStyles = (percentage: number | string) => {
         },
         item: {
           '& .label': {
-            marginBottom: theme.spacing(1),
             color: theme.palette.custom.fonts.fontOne,
           },
           '& p.value': {
-            color: theme.palette.custom.fonts.fontOne,
+            marginBottom: theme.spacing(1),
+            color: theme.palette.custom.fonts.fontTwo,
+            [theme.breakpoints.up('lg')]: {
+              color: theme.palette.custom.fonts.fontOne,
+            },
             '& .positive': {
               color: theme.palette.custom.tags.one,
             },

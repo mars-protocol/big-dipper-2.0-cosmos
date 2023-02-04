@@ -1,22 +1,22 @@
-import React from 'react';
-import classnames from 'classnames';
-import numeral from 'numeral';
-import Big from 'big.js';
 import {
-  Box,
-  InfoPopover,
+  Box, InfoPopover,
 } from '@components';
-import useTranslation from 'next-translate/useTranslation';
 import { Typography } from '@material-ui/core';
+import { useGetBalances } from '@src/hooks/use_get_balance';
+import Big from 'big.js';
+import classnames from 'classnames';
+import useTranslation from 'next-translate/useTranslation';
+import numeral from 'numeral';
+import React, {
+  useEffect, useState,
+} from 'react';
 import {
-  PieChart,
-  Pie,
-  Cell,
+  Cell, Pie, PieChart,
 } from 'recharts';
+import { QuorumExplanation } from './components';
+import { useVotesGraph } from './hooks';
 import { useStyles } from './styles';
 import { formatGraphData } from './utils';
-import { useVotesGraph } from './hooks';
-import { QuorumExplanation } from './components';
 
 const VotesGraph: React.FC<ComponentDefault> = (props) => {
   const {
@@ -27,28 +27,44 @@ const VotesGraph: React.FC<ComponentDefault> = (props) => {
   const { votes } = state;
   const { quorum } = state;
 
+  const vestingBalances = useGetBalances(
+    'mars14hj2tavq8fpesdwxxcu44rty3hh90vhujrvcmstl4zr3txmfvw9smxjtde',
+  );
+  const [vesting, setVesting] = useState<number | undefined>();
+  useEffect(() => {
+    const vestingResult = async () => {
+      const vestingInfo = await vestingBalances;
+      const vestingValue = Number(vestingInfo) / 1000000;
+      setVesting(vestingValue);
+    };
+
+    if (!vesting) vestingResult();
+  }, [vestingBalances]);
+
   const total = Big(votes.yes.value)
     .plus(votes.no.value)
     .plus(votes.veto.value)
     .plus(votes.abstain.value);
 
   const formattedData = formatGraphData({
-    data: votes, theme, total,
+    data: votes,
+    theme,
+    total,
   });
+
+  const totalVotingPower = Number(state.bonded.value) + vesting;
   const totalVotedFormat = numeral(total.toFixed(2)).format('0,0.[00]');
-  const totalBondedFormat = numeral(state.bonded.value).format('0,0.[00]');
+  const totalBondedFormat = numeral(totalVotingPower).format('0,0.[00]');
   const totalVotedPercent = total.gt(0)
     ? `${numeral(
-      Big(total.toFixed(2)).div(state.bonded.value).times(100).toFixed(2),
-    ).format('0.[00]')}%` : '0%';
+      Big(total.toFixed(2)).div(totalVotingPower).times(100).toFixed(2),
+    ).format('0.[00]')}%`
+    : '0%';
 
   return (
     <Box className={classnames(props.className, classes.root)}>
       <div className={classes.pie}>
-        <PieChart
-          width={250}
-          height={250}
-        >
+        <PieChart width={250} height={250}>
           <Pie
             cx="50%"
             cy="50%"
@@ -81,32 +97,32 @@ const VotesGraph: React.FC<ComponentDefault> = (props) => {
             {totalVotedFormat}
             {' '}
             /
-            {' '}
             {totalBondedFormat}
           </Typography>
         </div>
 
-        {formattedData.filter((x) => x.name !== 'empty').map((x) => {
-          return (
-            <div key={x.name} className={classnames(classes.voteItem, x.name)}>
-              <Typography variant="caption">
-                {t(x.name)}
-                {' '}
-                (
-                {x.percentage}
-                )
-              </Typography>
-              <Typography>
-                {x.display}
-              </Typography>
-            </div>
-          );
-        })}
+        {formattedData
+          .filter((x) => x.name !== 'empty')
+          .map((x) => {
+            return (
+              <div
+                key={x.name}
+                className={classnames(classes.voteItem, x.name)}
+              >
+                <Typography variant="caption">
+                  {t(x.name)}
+                  {' '}
+                  (
+                  {x.percentage}
+                  )
+                </Typography>
+                <Typography>{x.display}</Typography>
+              </div>
+            );
+          })}
       </div>
       <div className={classes.popOver}>
-        <InfoPopover
-          content={<QuorumExplanation quorum={quorum} />}
-        />
+        <InfoPopover content={<QuorumExplanation quorum={quorum} />} />
       </div>
     </Box>
   );
