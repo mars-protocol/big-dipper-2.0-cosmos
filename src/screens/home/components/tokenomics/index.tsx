@@ -29,14 +29,12 @@ const Tokenomics: React.FC<{
   const vestingBalances = useGetBalances(
     'mars14hj2tavq8fpesdwxxcu44rty3hh90vhujrvcmstl4zr3txmfvw9smxjtde',
   );
-  const safetyFundBalances = useGetBalances();
   const incentivesBalances = useGetBalances(
     'mars1krxwf5e308jmclyhfd9u92kp369l083wvxkp6n',
   );
   const marketState = useRecoilValue(readMarket);
 
   const [vesting, setVesting] = useState<number | undefined>();
-  const [safetyFund, setSafetyFund] = useState<number | undefined>();
   const [incentives, setIncentives] = useState<number | undefined>();
 
   useEffect(() => {
@@ -45,13 +43,6 @@ const Tokenomics: React.FC<{
       const vestingValue = Number(vestingInfo) / 1000000;
       setVesting(vestingValue);
     };
-
-    const safetyFundResult = async () => {
-      const safetyFundInfo = await safetyFundBalances;
-      const safetyFundValue = Number(safetyFundInfo) / 1000000;
-      setSafetyFund(safetyFundValue);
-    };
-
     const incentivesResult = async () => {
       const incentivesInfo = await incentivesBalances;
       const incentivesValue = Number(incentivesInfo) / 1000000;
@@ -59,9 +50,8 @@ const Tokenomics: React.FC<{
     };
 
     if (!vesting) vestingResult();
-    if (!safetyFund) safetyFundResult();
     if (!incentives) incentivesResult();
-  }, [vestingBalances, safetyFundBalances, incentivesBalances]);
+  }, [vestingBalances, incentivesBalances]);
 
   const genesisStake = 50000000;
   const staked = state.bonded > genesisStake ? state.bonded - genesisStake : state.bonded;
@@ -69,7 +59,7 @@ const Tokenomics: React.FC<{
   const community = (state.bonded > genesisStake
     ? communityPool + genesisStake
     : communityPool) + incentives;
-  const circulating = state.total - community - vesting - safetyFund;
+  const circulating = state.total - community - vesting;
 
   const data = [
     {
@@ -112,14 +102,6 @@ const Tokenomics: React.FC<{
       value: numeral(community).format('0,0'),
       rawValue: community,
       percent: `${numeral((community * 100) / state.total).format('0.00')}%`,
-      fill: theme.palette.custom.tokenomics.five,
-    },
-    {
-      legendKey: 'safetyFund',
-      percentKey: 'safetyFundPercent',
-      value: numeral(safetyFund).format('0,0'),
-      rawValue: safetyFund,
-      percent: `${numeral((safetyFund * 100) / state.total).format('0.00')}%`,
       fill: theme.palette.custom.tokenomics.five,
     },
   ];

@@ -8,11 +8,9 @@ import { useRecoilValue } from 'recoil';
 import { useStyles } from './styles';
 import { formatMarket } from './utils';
 
-const TitleBar:React.FC<{
+const TitleBar: React.FC<{
   className?: string;
-}> = ({
-  className,
-}) => {
+}> = ({ className }) => {
   const { t } = useTranslation('common');
   const classes = useStyles();
   const marketState = useRecoilValue(readMarket);
@@ -23,14 +21,12 @@ const TitleBar:React.FC<{
     <div className={classnames(className, classes.root)}>
       <FooterLogo className={classes.logo} />
       <div className={classes.content}>
-        {market.slice(0, 4).map((x) => (
+        {market.map((x) => (
           <div key={x.key} className={classes.item}>
             <Typography variant="body1" className="label">
               {t(x.key)}
             </Typography>
-            <Typography variant="body1">
-              {x.data}
-            </Typography>
+            <Typography variant="body1">{x.data}</Typography>
           </div>
         ))}
       </div>
