@@ -1,10 +1,11 @@
-import { useGetBalances } from '@src/hooks/use_get_balance';
-import { formatNumber } from '@utils/format_token';
-import Big from 'big.js';
-import numeral from 'numeral';
-import {
-  useEffect, useState,
-} from 'react';
+import { useGetBalances } from "@src/hooks/use_get_balance";
+import { readMarket } from "@src/recoil/market";
+import { useDataBlocks } from "@src/screens/home/components/data_blocks/hooks";
+import { useTokenomics } from "@src/screens/home/components/tokenomics/hooks";
+import { formatNumber } from "@utils/format_token";
+import numeral from "numeral";
+import { useEffect, useState } from "react";
+import { useRecoilValue } from "recoil";
 
 export const formatMarket = (data: {
   marketCap: number;
@@ -14,9 +15,48 @@ export const formatMarket = (data: {
   apr: number;
 }) => {
   const exludedItems = [null, 0];
+
+  const { state } = useTokenomics();
+  const { state: dataBlocks } = useDataBlocks();
+  const vestingBalances = useGetBalances(
+    "mars14hj2tavq8fpesdwxxcu44rty3hh90vhujrvcmstl4zr3txmfvw9smxjtde"
+  );
+  const incentivesBalances = useGetBalances(
+    "mars1krxwf5e308jmclyhfd9u92kp369l083wvxkp6n"
+  );
+  const marketState = useRecoilValue(readMarket);
+
+  const [vesting, setVesting] = useState<number | undefined>();
+  const [incentives, setIncentives] = useState<number | undefined>();
+
+  useEffect(() => {
+    const vestingResult = async () => {
+      const vestingInfo = await vestingBalances;
+      const vestingValue = Number(vestingInfo) / 1000000;
+      setVesting(vestingValue);
+    };
+    const incentivesResult = async () => {
+      const incentivesInfo = await incentivesBalances;
+      const incentivesValue = Number(incentivesInfo) / 1000000;
+      setIncentives(incentivesValue);
+    };
+
+    if (!vesting) vestingResult();
+    if (!incentives) incentivesResult();
+  }, [vestingBalances, incentivesBalances]);
+
+  const genesisStake = 50000000;
+  const communityPool = Number(marketState.communityPool.value);
+  const community =
+    (state.bonded > genesisStake
+      ? communityPool + genesisStake
+      : communityPool) + incentives;
+  const circulating = state.total - community - vesting;
+  const price = dataBlocks.price || 0;
+
   const marketCap = exludedItems.includes(data.marketCap)
-    ? 'N/A'
-    : `$${formatNumber(data.marketCap.toString(), 2)}`;
+    ? "N/A"
+    : `$${formatNumber((circulating * price).toString(), 2)}`;
 
   const safetyFundBalances = useGetBalances();
   const [safetyFund, setSafetyFund] = useState<number | undefined>();
@@ -31,26 +71,26 @@ export const formatMarket = (data: {
 
   return [
     {
-      key: 'marketCap',
+      key: "circulating",
+      data: `${formatNumber(circulating.toString(), 0)} MARS`,
+    },
+    {
+      key: "price",
+      data: `$${formatNumber(price.toString(), 2)}`,
+    },
+    {
+      key: "marketCap",
       data: marketCap,
     },
     {
-      key: 'inflation',
-      data: `${formatNumber(Big(data.inflation).times(100).toPrecision(), 0)}%`,
+      key: "safetyFund",
+      data: `${numeral(safetyFund).format("0,0")} USDC`,
     },
     {
-      key: 'apr',
-      data: `${formatNumber(Big(data.apr).times(100).toPrecision(), 2)}%`,
-    },
-    {
-      key: 'safetyFund',
-      data: `${numeral(safetyFund).format('0,0')} USDC`,
-    },
-    {
-      key: 'supply',
+      key: "supply",
       data: `${formatNumber(
         data.supply.value,
-        2,
+        2
       )} ${data.supply.displayDenom.toUpperCase()}`,
     },
   ];
