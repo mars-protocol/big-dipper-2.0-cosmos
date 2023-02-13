@@ -53,11 +53,11 @@ export const formatMarket = (data: {
     ? communityPool + genesisStake
     : communityPool) + incentives;
   const circulating = state.total - community - vesting;
-  const price = dataBlocks.price || 0;
+  const { price } = dataBlocks;
 
   const marketCap = exludedItems.includes(data.marketCap)
     ? 'N/A'
-    : `$${formatNumber((circulating * price).toString(), 2)}`;
+    : `$${formatNumber((circulating * (price ?? 0)).toString(), 2)}`;
 
   const safetyFundBalances = useGetBalances();
   const [safetyFund, setSafetyFund] = useState<number | undefined>();
@@ -77,7 +77,7 @@ export const formatMarket = (data: {
     },
     {
       key: 'price',
-      data: `$${formatNumber(price.toString(), 2)}`,
+      data: price !== null ? `$${numeral(price).format('0.00')}` : 'N/A',
     },
     {
       key: 'marketCap',
