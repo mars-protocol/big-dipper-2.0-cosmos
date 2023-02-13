@@ -12,16 +12,13 @@ import AutoSizer from 'react-virtualized-auto-sizer';
 
 import { PROPOSAL_DETAILS } from '@utils/go_to_page';
 import {
-  useList,
-  useListRow,
+  useList, useListRow,
 } from '@hooks';
 import {
-  Loading,
-  Box,
+  Loading, Box,
 } from '@components';
 import {
-  Total,
-  SingleProposal,
+  Total, SingleProposal,
 } from './components';
 import { useStyles } from './styles';
 import { ProposalType } from '../../types';
@@ -44,14 +41,15 @@ const ProposalsList: React.FC<{
   const classes = useStyles();
 
   const {
-    listRef,
-    getRowHeight,
-    setRowHeight,
+    listRef, getRowHeight, setRowHeight,
   } = useList();
 
   const formattedItems = items.map((x) => {
-    return ({
-      description: x.description.length > 200 ? `${x.description.slice(0, 200)}...` : x.description,
+    return {
+      description:
+        x.description.length > 200
+          ? `${x.description.slice(0, 200)}...`
+          : x.description,
       status: x.status,
       title: (
         <Link href={PROPOSAL_DETAILS(x.id)} passHref>
@@ -61,13 +59,16 @@ const ProposalsList: React.FC<{
         </Link>
       ),
       id: `#${numeral(x.id).format('0,0')}`,
-    });
+    };
   });
 
   return (
     <Box className={classnames(className, classes.root)}>
       <div className={classes.topContent}>
-        <Total className={classes.total} total={numeral(rawDataTotal).format('0,0')} />
+        <Total
+          className={classes.total}
+          total={numeral(rawDataTotal).format('0,0')}
+        />
         {/* <Search className={classes.search} /> */}
       </div>
       <div className={classes.list}>
@@ -122,7 +123,6 @@ const ProposalsList: React.FC<{
             );
           }}
         </AutoSizer>
-
       </div>
     </Box>
   );
