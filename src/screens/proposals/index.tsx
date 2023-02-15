@@ -12,8 +12,6 @@ const Proposals = () => {
     state, loadMoreItems, itemCount, isItemLoaded,
   } = useProposals();
 
-  console.log(state);
-
   return (
     <>
       <NextSeo

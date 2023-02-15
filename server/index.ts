@@ -1,11 +1,11 @@
 /* eslint-disable no-console */
+import cors from 'cors';
+import dotenv from 'dotenv';
 import express, {
   Request, Response,
 } from 'express';
-import next from 'next';
-import cors from 'cors';
-import dotenv from 'dotenv';
 import helmet from 'helmet';
+import next from 'next';
 
 dotenv.config();
 
