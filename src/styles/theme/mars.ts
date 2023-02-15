@@ -101,11 +101,11 @@ export const marsThemeOverride = {
       },
       charts: {
         zero: '#6D6D6C',
-        one: '#FFDF01',
-        two: '#F60239',
-        three: '#A40122',
-        four: '#009FFA',
-        five: '#FF92FD',
+        one: '#14a693',
+        two: '#f96363',
+        three: '#eb9e49',
+        four: '#6962cc',
+        five: '#524bb1',
       },
     },
   },
@@ -120,11 +120,13 @@ export const marsThemeOverride = {
         height: 'unset',
         borderRadius: '0 0 16px 0',
         overflow: 'hidden',
-        background: 'linear-gradient(99.79deg, rgba(8, 11, 30, 0.79) 8.17%, rgba(52, 20, 33, 0.9) 94.54%)',
+        background:
+          'linear-gradient(99.79deg, rgba(8, 11, 30, 0.79) 8.17%, rgba(52, 20, 33, 0.9) 94.54%)',
         transition: 'all .2s cubic-bezier(0.4, 0, 1, 1) 0ms',
 
         '&.open': {
-          background: 'linear-gradient(132.82deg, rgba(11, 14, 32, 1) 5.03%, rgba(52, 20, 33, 1) 73.08%)',
+          background:
+            'linear-gradient(132.82deg, rgba(11, 14, 32, 1) 5.03%, rgba(52, 20, 33, 1) 73.08%)',
           transition: 'all .2s cubic-bezier(0.4, 0, 1, 1) 0ms',
         },
 
@@ -258,9 +260,11 @@ export const marsThemeOverride = {
     MuiPopover: {
       paper: {
         padding: '8px, 16px',
-        boxShadow: '0 3px 4px rgba(0, 0, 0, 0.14), 0 6px 30px rgba(0, 0, 0, 0.12), 0 8px 10px rgba(0, 0, 0, 0.2)',
+        boxShadow:
+          '0 3px 4px rgba(0, 0, 0, 0.14), 0 6px 30px rgba(0, 0, 0, 0.12), 0 8px 10px rgba(0, 0, 0, 0.2)',
         borderRadius: '12px',
-        background: 'linear-gradient(77.47deg, rgba(20, 24, 57, 0.9) 11.58%, rgba(34, 16, 57, 0.9) 93.89%)',
+        background:
+          'linear-gradient(77.47deg, rgba(20, 24, 57, 0.9) 11.58%, rgba(34, 16, 57, 0.9) 93.89%)',
         color: fontOne,
       },
     },

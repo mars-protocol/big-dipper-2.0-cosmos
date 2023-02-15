@@ -71,7 +71,7 @@ const VotesGraph: React.FC<ComponentDefault> = (props) => {
             stroke="none"
             dataKey="value"
             data={formattedData}
-            fill="#8884d8"
+            fill="#14a693"
             isAnimationActive={false}
           >
             {formattedData.map((entry, index) => {
