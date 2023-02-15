@@ -1,27 +1,25 @@
-import React from 'react';
-import numeral from 'numeral';
+import {
+  Divider, Typography,
+} from '@material-ui/core';
+import { mergeRefs } from '@utils/merge_refs';
 import classnames from 'classnames';
 import Link from 'next/link';
-import { mergeRefs } from '@utils/merge_refs';
-import {
-  Typography, Divider,
-} from '@material-ui/core';
+import numeral from 'numeral';
+import React from 'react';
+import AutoSizer from 'react-virtualized-auto-sizer';
 import { VariableSizeList as List } from 'react-window';
 import InfiniteLoader from 'react-window-infinite-loader';
-import AutoSizer from 'react-virtualized-auto-sizer';
 
-import { PROPOSAL_DETAILS } from '@utils/go_to_page';
+import {
+  Box, Loading,
+} from '@components';
 import {
   useList, useListRow,
 } from '@hooks';
-import {
-  Loading, Box,
-} from '@components';
-import {
-  Total, SingleProposal,
-} from './components';
-import { useStyles } from './styles';
+import { PROPOSAL_DETAILS } from '@utils/go_to_page';
 import { ProposalType } from '../../types';
+import { SingleProposal } from './components';
+import { useStyles } from './styles';
 
 const ProposalsList: React.FC<{
   className?: string;
@@ -31,12 +29,7 @@ const ProposalsList: React.FC<{
   itemCount: number;
   loadMoreItems: () => void;
 }> = ({
-  className,
-  items,
-  rawDataTotal,
-  isItemLoaded,
-  itemCount,
-  loadMoreItems,
+  className, items, isItemLoaded, itemCount, loadMoreItems,
 }) => {
   const classes = useStyles();
 
@@ -65,10 +58,6 @@ const ProposalsList: React.FC<{
   return (
     <Box className={classnames(className, classes.root)}>
       <div className={classes.topContent}>
-        <Total
-          className={classes.total}
-          total={numeral(rawDataTotal).format('0,0')}
-        />
         {/* <Search className={classes.search} /> */}
       </div>
       <div className={classes.list}>
