@@ -53,9 +53,15 @@ const Tokenomics: React.FC<{
     if (!incentives) incentivesResult();
   }, [vestingBalances, incentivesBalances]);
 
-  const genesisStake = 50000000;
+  const genesisStake = 25000000;
+  const unbondingStake = 50000000;
   const staked = state.bonded > genesisStake ? state.bonded - genesisStake : state.bonded;
-  const communityPool = Number(marketState.communityPool.value);
+  const unstaking = state.unbonding > unbondingStake
+    ? state.unbonding - unbondingStake
+    : state.unbonding;
+  const communityPool = state.unbonding > unbondingStake
+    ? Number(marketState.communityPool.value) + unbondingStake
+    : Number(marketState.communityPool.value);
   const community = (state.bonded > genesisStake
     ? communityPool + genesisStake
     : communityPool) + incentives;
@@ -81,11 +87,9 @@ const Tokenomics: React.FC<{
     {
       legendKey: 'unbonding',
       percentKey: 'unbondingPercent',
-      value: numeral(state.unbonding).format('0,0'),
-      rawValue: state.unbonding,
-      percent: `${numeral((state.unbonding * 100) / state.total).format(
-        '0.00',
-      )}%`,
+      value: numeral(unstaking).format('0,0'),
+      rawValue: unstaking,
+      percent: `${numeral((unstaking * 100) / state.total).format('0.00')}%`,
       fill: theme.palette.custom.tokenomics.three,
     },
     {

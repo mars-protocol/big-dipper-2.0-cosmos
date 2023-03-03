@@ -26,7 +26,7 @@ const OnlineVotingPower: React.FC<ComponentDefault> = () => {
     if (!vesting) vestingResult();
   }, [vestingBalances]);
 
-  const genesisStake = 50000000;
+  const genesisStake = 25000000;
 
   const isVotingPowerPercentHigherThan100 = state.votingPower / state.totalVotingPower > 1;
   const votingPowerPercent = isVotingPowerPercentHigherThan100

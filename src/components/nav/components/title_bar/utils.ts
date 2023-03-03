@@ -47,8 +47,11 @@ export const formatMarket = (data: {
     if (!incentives) incentivesResult();
   }, [vestingBalances, incentivesBalances]);
 
-  const genesisStake = 50000000;
-  const communityPool = Number(marketState.communityPool.value);
+  const genesisStake = 25000000;
+  const unbondingStake = 50000000;
+  const communityPool = state.unbonding > unbondingStake
+    ? Number(marketState.communityPool.value) + unbondingStake
+    : Number(marketState.communityPool.value);
   const community = (state.bonded > genesisStake
     ? communityPool + genesisStake
     : communityPool) + incentives;
