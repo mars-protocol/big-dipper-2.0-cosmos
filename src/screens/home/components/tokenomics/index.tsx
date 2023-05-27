@@ -1,28 +1,36 @@
-import { Box, CustomToolTip } from "@components";
-import { chainConfig } from "@configs";
-import { Typography } from "@material-ui/core";
-import { readMarket } from "@recoil/market";
-import { useGetBalances } from "@src/hooks/use_get_balance";
-import classnames from "classnames";
-import useTranslation from "next-translate/useTranslation";
-import numeral from "numeral";
-import React, { useEffect, useState } from "react";
-import { Cell, Pie, PieChart, Tooltip } from "recharts";
-import { useRecoilValue } from "recoil";
-import { useTokenomics } from "./hooks";
-import { useStyles } from "./styles";
+import {
+  Box, CustomToolTip,
+} from '@components';
+import { chainConfig } from '@configs';
+import { Typography } from '@material-ui/core';
+import { readMarket } from '@recoil/market';
+import { useGetBalances } from '@src/hooks/use_get_balance';
+import classnames from 'classnames';
+import useTranslation from 'next-translate/useTranslation';
+import numeral from 'numeral';
+import React, {
+  useEffect, useState,
+} from 'react';
+import {
+  Cell, Pie, PieChart, Tooltip,
+} from 'recharts';
+import { useRecoilValue } from 'recoil';
+import { useTokenomics } from './hooks';
+import { useStyles } from './styles';
 
 const Tokenomics: React.FC<{
   className?: string;
 }> = ({ className }) => {
-  const { t } = useTranslation("home");
-  const { classes, theme } = useStyles();
+  const { t } = useTranslation('home');
+  const {
+    classes, theme,
+  } = useStyles();
   const { state } = useTokenomics();
   const vestingBalances = useGetBalances(
-    "mars14hj2tavq8fpesdwxxcu44rty3hh90vhujrvcmstl4zr3txmfvw9smxjtde"
+    'mars14hj2tavq8fpesdwxxcu44rty3hh90vhujrvcmstl4zr3txmfvw9smxjtde',
   );
   const incentivesBalances = useGetBalances(
-    "mars1krxwf5e308jmclyhfd9u92kp369l083wvxkp6n"
+    'mars1krxwf5e308jmclyhfd9u92kp369l083wvxkp6n',
   );
   const marketState = useRecoilValue(readMarket);
 
@@ -53,72 +61,72 @@ const Tokenomics: React.FC<{
 
   const data = [
     {
-      legendKey: "circulating",
-      percentKey: "circulatingPercent",
-      value: numeral(circulating).format("0,0"),
+      legendKey: 'circulating',
+      percentKey: 'circulatingPercent',
+      value: numeral(circulating).format('0,0'),
       rawValue: circulating,
-      percent: `${numeral((circulating * 100) / state.total).format("0.00")}%`,
+      percent: `${numeral((circulating * 100) / state.total).format('0.00')}%`,
       fill: theme.palette.custom.tokenomics.one,
       subset: [
         {
-          legendKey: "bonded",
-          value: numeral(staked).format("0,0"),
-          percent: `${numeral((staked * 100) / circulating).format("0.00")}%`,
+          legendKey: 'bonded',
+          value: numeral(staked).format('0,0'),
+          percent: `${numeral((staked * 100) / circulating).format('0.00')}%`,
         },
         {
-          legendKey: "unbonding",
-          value: numeral(unstaking).format("0,0"),
+          legendKey: 'unbonding',
+          value: numeral(unstaking).format('0,0'),
           percent: `${numeral((unstaking * 100) / circulating).format(
-            "0.00"
+            '0.00',
           )}%`,
         },
       ],
     },
     {
-      legendKey: "vesting",
-      percentKey: "vestingPercent",
-      value: numeral(vesting).format("0,0"),
+      legendKey: 'vesting',
+      percentKey: 'vestingPercent',
+      value: numeral(vesting).format('0,0'),
       rawValue: vesting,
-      percent: `${numeral((vesting * 100) / state.total).format("0.00")}%`,
+      percent: `${numeral((vesting * 100) / state.total).format('0.00')}%`,
       fill: theme.palette.custom.tokenomics.two,
     },
     {
-      legendKey: "community",
-      percentKey: "communityPercent",
-      value: numeral(community).format("0,0"),
+      legendKey: 'community',
+      percentKey: 'communityPercent',
+      value: numeral(community).format('0,0'),
       rawValue: community,
-      percent: `${numeral((community * 100) / state.total).format("0.00")}%`,
+      percent: `${numeral((community * 100) / state.total).format('0.00')}%`,
       fill: theme.palette.custom.tokenomics.three,
     },
   ];
 
   const legendData = {
     circulating: {
-      legendKey: "circulating",
-      value: numeral(circulating).format("0,0"),
+      legendKey: 'circulating',
+      value: numeral(circulating).format('0,0'),
     },
     staked: {
-      legendKey: "bonded",
-      value: numeral(staked).format("0,0"),
+      legendKey: 'bonded',
+      value: numeral(staked).format('0,0'),
     },
     unstaking: {
-      legendKey: "unbonding",
-      value: numeral(unstaking).format("0,0"),
+      legendKey: 'unbonding',
+      value: numeral(unstaking).format('0,0'),
     },
     vesting: {
-      legendKey: "vesting",
-      value: numeral(vesting).format("0,0"),
+      legendKey: 'vesting',
+      value: numeral(vesting).format('0,0'),
     },
     community: {
-      legendKey: "community",
-      value: numeral(community).format("0,0"),
+      legendKey: 'community',
+      value: numeral(community).format('0,0'),
     },
   };
 
   return (
     <Box className={classnames(className, classes.root)}>
       <Typography variant="h2" className={classes.label}>
-        {t("tokenomics")}
+        {t('tokenomics')}
       </Typography>
       <div className={classes.data}>
         <div className="data__item">
@@ -126,21 +134,24 @@ const Tokenomics: React.FC<{
             {t(legendData.circulating.legendKey)}
           </Typography>
           <Typography variant="h4">
-            {legendData.circulating.value}{" "}
+            {legendData.circulating.value}
+            {' '}
             {chainConfig.tokenUnits[state.denom]?.display?.toUpperCase()}
           </Typography>
           <Typography variant="caption">
             {t(legendData.staked.legendKey)}
           </Typography>
           <Typography variant="h5">
-            {legendData.staked.value}{" "}
+            {legendData.staked.value}
+            {' '}
             {chainConfig.tokenUnits[state.denom]?.display?.toUpperCase()}
           </Typography>
           <Typography variant="caption">
             {t(legendData.unstaking.legendKey)}
           </Typography>
           <Typography variant="h5">
-            {legendData.unstaking.value}{" "}
+            {legendData.unstaking.value}
+            {' '}
             {chainConfig.tokenUnits[state.denom]?.display?.toUpperCase()}
           </Typography>
         </div>
@@ -149,14 +160,16 @@ const Tokenomics: React.FC<{
             {t(legendData.community.legendKey)}
           </Typography>
           <Typography variant="h4">
-            {legendData.community.value}{" "}
+            {legendData.community.value}
+            {' '}
             {chainConfig.tokenUnits[state.denom]?.display?.toUpperCase()}
           </Typography>
           <Typography variant="body2" className="label">
             {t(legendData.vesting.legendKey)}
           </Typography>
           <Typography variant="h4">
-            {legendData.vesting.value}{" "}
+            {legendData.vesting.value}
+            {' '}
             {chainConfig.tokenUnits[state.denom]?.display?.toUpperCase()}
           </Typography>
         </div>
@@ -184,7 +197,7 @@ const Tokenomics: React.FC<{
             })}
           </Pie>
           <Tooltip
-            content={
+            content={(
               <CustomToolTip>
                 {(x) => {
                   return (
@@ -193,7 +206,11 @@ const Tokenomics: React.FC<{
                         {t(x.legendKey)}
                       </Typography>
                       <Typography variant="body1">
-                        {x.value} ({x.percent})
+                        {x.value}
+                        {' '}
+                        (
+                        {x.percent}
+                        )
                       </Typography>
                       {x.subset?.map((y) => (
                         <div className="subset">
@@ -201,7 +218,11 @@ const Tokenomics: React.FC<{
                             {t(y.legendKey)}
                           </Typography>
                           <Typography variant="body1">
-                            {y.value} ({y.percent})
+                            {y.value}
+                            {' '}
+                            (
+                            {y.percent}
+                            )
                           </Typography>
                         </div>
                       ))}
@@ -209,7 +230,7 @@ const Tokenomics: React.FC<{
                   );
                 }}
               </CustomToolTip>
-            }
+            )}
           />
         </PieChart>
 
@@ -220,8 +241,8 @@ const Tokenomics: React.FC<{
                 <Typography variant="caption">
                   {t(x.percentKey, {
                     percent:
-                      x.percent === "0.00%" && x.rawValue > 0
-                        ? "< 0.00%"
+                      x.percent === '0.00%' && x.rawValue > 0
+                        ? '< 0.00%'
                         : x.percent,
                   })}
                 </Typography>
