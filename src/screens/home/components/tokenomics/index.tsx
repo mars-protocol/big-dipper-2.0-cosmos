@@ -67,22 +67,20 @@ const Tokenomics: React.FC<{
       rawValue: circulating,
       percent: `${numeral((circulating * 100) / state.total).format('0.00')}%`,
       fill: theme.palette.custom.tokenomics.one,
-    },
-    {
-      legendKey: 'bonded',
-      percentKey: 'bondedPercent',
-      value: numeral(staked).format('0,0'),
-      rawValue: staked,
-      percent: `${numeral((staked * 100) / state.total).format('0.00')}%`,
-      fill: theme.palette.custom.tokenomics.two,
-    },
-    {
-      legendKey: 'unbonding',
-      percentKey: 'unbondingPercent',
-      value: numeral(unstaking).format('0,0'),
-      rawValue: unstaking,
-      percent: `${numeral((unstaking * 100) / state.total).format('0.00')}%`,
-      fill: theme.palette.custom.tokenomics.three,
+      subset: [
+        {
+          legendKey: 'bonded',
+          value: numeral(staked).format('0,0'),
+          percent: `${numeral((staked * 100) / state.total).format('0.00')}%`,
+        },
+        {
+          legendKey: 'unbonding',
+          value: numeral(unstaking).format('0,0'),
+          percent: `${numeral((unstaking * 100) / state.total).format(
+            '0.00',
+          )}%`,
+        },
+      ],
     },
     {
       legendKey: 'vesting',
@@ -102,22 +100,79 @@ const Tokenomics: React.FC<{
     },
   ];
 
+  const legendData = {
+    circulating: {
+      legendKey: 'circulating',
+      value: numeral(circulating).format('0,0'),
+    },
+    staked: {
+      legendKey: 'bonded',
+      value: numeral(staked).format('0,0'),
+    },
+    unstaking: {
+      legendKey: 'unbonding',
+      value: numeral(unstaking).format('0,0'),
+    },
+    vesting: {
+      legendKey: 'vesting',
+      value: numeral(vesting).format('0,0'),
+    },
+    community: {
+      legendKey: 'community',
+      value: numeral(community).format('0,0'),
+    },
+  };
+
   return (
     <Box className={classnames(className, classes.root)}>
       <Typography variant="h2" className={classes.label}>
         {t('tokenomics')}
       </Typography>
       <div className={classes.data}>
-        {data.map((x) => (
-          <div className="data__item" key={x.percentKey}>
-            <Typography variant="h4">
-              {x.value}
-              {' '}
-              {chainConfig.tokenUnits[state.denom]?.display?.toUpperCase()}
-            </Typography>
-            <Typography variant="caption">{t(x.legendKey)}</Typography>
-          </div>
-        ))}
+        <div className="data__item">
+          <Typography variant="body2" className="label">
+            {t(legendData.circulating.legendKey)}
+          </Typography>
+          <Typography variant="h4">
+            {legendData.circulating.value}
+            {' '}
+            {chainConfig.tokenUnits[state.denom]?.display?.toUpperCase()}
+          </Typography>
+          <Typography variant="caption">
+            {t(legendData.staked.legendKey)}
+          </Typography>
+          <Typography variant="h5">
+            {legendData.staked.value}
+            {' '}
+            {chainConfig.tokenUnits[state.denom]?.display?.toUpperCase()}
+          </Typography>
+          <Typography variant="caption">
+            {t(legendData.unstaking.legendKey)}
+          </Typography>
+          <Typography variant="h5">
+            {legendData.unstaking.value}
+            {' '}
+            {chainConfig.tokenUnits[state.denom]?.display?.toUpperCase()}
+          </Typography>
+        </div>
+        <div className="data__item">
+          <Typography variant="body2" className="label">
+            {t(legendData.community.legendKey)}
+          </Typography>
+          <Typography variant="h4">
+            {legendData.community.value}
+            {' '}
+            {chainConfig.tokenUnits[state.denom]?.display?.toUpperCase()}
+          </Typography>
+          <Typography variant="body2" className="label">
+            {t(legendData.vesting.legendKey)}
+          </Typography>
+          <Typography variant="h4">
+            {legendData.vesting.value}
+            {' '}
+            {chainConfig.tokenUnits[state.denom]?.display?.toUpperCase()}
+          </Typography>
+        </div>
       </div>
       <div className={classes.content}>
         <PieChart width={200} height={100} cy={100}>
@@ -157,6 +212,20 @@ const Tokenomics: React.FC<{
                         {x.percent}
                         )
                       </Typography>
+                      {x.subset?.map((y) => (
+                        <div className="subset">
+                          <Typography variant="body1" key={y.legendKey}>
+                            {t(y.legendKey)}
+                          </Typography>
+                          <Typography variant="body1">
+                            {y.value}
+                            {' '}
+                            (
+                            {y.percent}
+                            )
+                          </Typography>
+                        </div>
+                      ))}
                     </>
                   );
                 }}

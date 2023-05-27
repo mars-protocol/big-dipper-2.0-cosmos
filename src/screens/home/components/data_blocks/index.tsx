@@ -1,19 +1,26 @@
-import React from 'react';
 import classnames from 'classnames';
-import numeral from 'numeral';
 import useTranslation from 'next-translate/useTranslation';
+import numeral from 'numeral';
+import React from 'react';
 import { SingleBlock } from './components';
-import { useStyles } from './styles';
 import { useDataBlocks } from './hooks';
+import { useStyles } from './styles';
 
 const DataBlocks: React.FC<{
   className?: string;
-}> = ({
-  className,
-}) => {
+}> = ({ className }) => {
   const { t } = useTranslation('home');
   const classes = useStyles();
   const { state } = useDataBlocks();
+  const priceDom = state.price !== null
+    ? [
+      <div>
+        $
+        {numeral(state.price).format('0.00')}
+        <span className="sub">{state.priceDecimals}</span>
+      </div>,
+    ]
+    : 'N/A';
   const data = [
     {
       key: t('latestBlock'),
@@ -27,7 +34,7 @@ const DataBlocks: React.FC<{
     },
     {
       key: t('price'),
-      value: state.price !== null ? `$${numeral(state.price).format('0.00')}` : 'N/A',
+      value: priceDom,
       className: classes.price,
     },
     {

@@ -1,30 +1,32 @@
-import { useState } from 'react';
-import * as R from 'ramda';
-import numeral from 'numeral';
+import { chainConfig } from '@configs';
 import {
-  useLatestBlockHeightListenerSubscription,
-  useAverageBlockTimeQuery,
+  ActiveValidatorCountQuery,
   AverageBlockTimeQuery,
-  useTokenPriceListenerSubscription,
   TokenPriceListenerSubscription,
   useActiveValidatorCountQuery,
-  ActiveValidatorCountQuery,
+  useAverageBlockTimeQuery,
+  useLatestBlockHeightListenerSubscription,
+  useTokenPriceListenerSubscription,
 } from '@graphql/types/general_types';
-import { chainConfig } from '@configs';
+import numeral from 'numeral';
+import * as R from 'ramda';
+import { useState } from 'react';
 
 export const useDataBlocks = () => {
   const [state, setState] = useState<{
     blockHeight: number;
     blockTime: number;
     price: number | null;
+    priceDecimals: string | null;
     validators: {
       active: number;
       total: number;
-    }
+    };
   }>({
     blockHeight: 0,
     blockTime: 0,
     price: null,
+    priceDecimals: null,
     validators: {
       active: 0,
       total: 0,
@@ -39,7 +41,11 @@ export const useDataBlocks = () => {
     onSubscriptionData: (data) => {
       setState((prevState) => ({
         ...prevState,
-        blockHeight: R.pathOr(0, ['height', 0, 'height'], data.subscriptionData.data),
+        blockHeight: R.pathOr(
+          0,
+          ['height', 0, 'height'],
+          data.subscriptionData.data,
+        ),
       }));
     },
   });
@@ -68,16 +74,24 @@ export const useDataBlocks = () => {
       denom: chainConfig?.tokenUnits[chainConfig.primaryTokenUnit]?.display,
     },
     onSubscriptionData: (data) => {
+      let decimals = null;
+      if (data.subscriptionData.data?.tokenPrice[0]?.price) {
+        const price = data.subscriptionData.data?.tokenPrice[0]?.price.toString();
+        decimals = price.split('.')[1].substring(2);
+      }
       setState((prevState) => ({
         ...prevState,
         price: formatTokenPrice(data.subscriptionData.data),
+        priceDecimals: decimals,
       }));
     },
   });
 
   const formatTokenPrice = (data: TokenPriceListenerSubscription) => {
     if (data?.tokenPrice[0]?.price) {
-      return numeral(numeral(data?.tokenPrice[0]?.price).format('0.[00]', Math.floor)).value();
+      return numeral(
+        numeral(data?.tokenPrice[0]?.price).format('0.[00]', Math.floor),
+      ).value();
     }
     return state.price;
   };
