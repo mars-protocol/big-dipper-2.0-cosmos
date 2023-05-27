@@ -94,9 +94,9 @@ export const marsThemeOverride = {
       tokenomics: {
         one: '#14a693',
         two: '#524bb1',
-        three: '#6962cc',
+        three: '#f96363',
         four: '#6D6D6C',
-        five: '#f96363',
+        five: '#6962cc',
         six: '#eb9e49',
       },
       charts: {

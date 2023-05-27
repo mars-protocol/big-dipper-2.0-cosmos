@@ -88,7 +88,7 @@ const Tokenomics: React.FC<{
       value: numeral(vesting).format('0,0'),
       rawValue: vesting,
       percent: `${numeral((vesting * 100) / state.total).format('0.00')}%`,
-      fill: theme.palette.custom.tokenomics.four,
+      fill: theme.palette.custom.tokenomics.two,
     },
     {
       legendKey: 'community',
@@ -96,7 +96,7 @@ const Tokenomics: React.FC<{
       value: numeral(community).format('0,0'),
       rawValue: community,
       percent: `${numeral((community * 100) / state.total).format('0.00')}%`,
-      fill: theme.palette.custom.tokenomics.five,
+      fill: theme.palette.custom.tokenomics.three,
     },
   ];
 
